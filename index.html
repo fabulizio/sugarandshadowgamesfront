@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +20,9 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <!-- Top anchor target -->
+  <div id="top" tabindex="-1"></div>
+
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="#top" aria-label="Sugar & Shadow Games home">
@@ -36,7 +40,13 @@
       <div class="header-actions">
         <a class="cta" href="#contact">Join the Circle</a>
 
-        <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <button
+          class="menu-btn"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="mobileNav"
+        >
           <span class="menu-bars" aria-hidden="true"></span>
         </button>
       </div>
@@ -54,16 +64,17 @@
 
   <main id="main">
     <!-- HERO -->
-    <section id="top" class="hero">
+    <section class="hero">
       <div class="container hero-inner">
         <div class="hero-left">
-          <!-- We'll set the src via JS to avoid 404 issues (tries assets/logo.jpg then logo.jpg) -->
+          <!-- Use JS fallback list (assets/logo.jpg -> logo.jpg) -->
           <img
             id="heroLogo"
             class="hero-logo"
             src="assets/logo.jpg"
             alt="Sugar & Shadow Games logo"
             loading="eager"
+            decoding="async"
           />
         </div>
 
@@ -152,8 +163,8 @@
               <li>Perfect for clips & challenges</li>
             </ul>
             <div class="game-actions">
-              <a class="button small ghost" href="#contact">Become a playtester</a>
-              <a class="button small primary" href="#community">See feedback</a>
+              <a class="button small primary" href="#contact">Become a playtester</a>
+              <a class="button small ghost" href="#community">See feedback</a>
             </div>
           </article>
 
@@ -172,8 +183,8 @@
               <li>Designed for families & kids 8+</li>
             </ul>
             <div class="game-actions">
-              <a class="button small ghost" href="#contact">Join the waitlist</a>
-              <a class="button small primary" href="#contact">Collaborate</a>
+              <a class="button small primary" href="#contact">Join the waitlist</a>
+              <a class="button small ghost" href="#contact">Collaborate</a>
             </div>
           </article>
 
@@ -192,8 +203,8 @@
               <li>Built for dedicated adult tables</li>
             </ul>
             <div class="game-actions">
-              <a class="button small ghost" href="#contact">Request updates</a>
-              <a class="button small primary" href="#about">Studio philosophy</a>
+              <a class="button small primary" href="#contact">Request updates</a>
+              <a class="button small ghost" href="#about">Studio philosophy</a>
             </div>
           </article>
         </div>
@@ -255,7 +266,8 @@
 
             <h3>Newsletter</h3>
             <p class="muted-on-dark">
-              Add your ConvertKit embed later. For now, email us and we’ll add you manually.
+              Newsletter signup is coming soon. For now, email us with subject: <strong>CIRCLE</strong>
+              and we’ll add you.
             </p>
           </div>
 
@@ -279,45 +291,53 @@
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Mobile nav toggle
+    // Mobile nav toggle (+ accessibility polish)
     const btn = document.querySelector('.menu-btn');
     const mobileNav = document.getElementById('mobileNav');
 
+    function setMenu(open) {
+      if (!btn || !mobileNav) return;
+      btn.setAttribute('aria-expanded', String(open));
+      btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      mobileNav.hidden = !open;
+      if (open) {
+        // move focus into the menu for keyboard users
+        const firstLink = mobileNav.querySelector('a');
+        firstLink && firstLink.focus();
+      } else {
+        btn.focus();
+      }
+    }
+
     btn?.addEventListener('click', () => {
       const isOpen = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', String(!isOpen));
-      mobileNav.hidden = isOpen;
+      setMenu(!isOpen);
     });
 
     // Close menu after clicking a link
     mobileNav?.addEventListener('click', (e) => {
       const target = e.target;
-      if (target && target.tagName === 'A') {
-        btn.setAttribute('aria-expanded', 'false');
-        mobileNav.hidden = true;
+      if (target && target.tagName === 'A') setMenu(false);
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && btn?.getAttribute('aria-expanded') === 'true') {
+        setMenu(false);
       }
     });
 
-    // LOGO fallback (fixes 404 if path is wrong in Pages)
+    // LOGO fallback (assets/logo.jpg -> logo.jpg)
     (function () {
       const img = document.getElementById('heroLogo');
       if (!img) return;
 
-      const candidates = [
-        'assets/logo.jpg',
-        'logo.jpg'
-      ];
-
-      let i = 0;
-      const tryNext = () => {
-        if (i >= candidates.length) return;
-        img.src = candidates[i];
-        i += 1;
-      };
-
-      img.addEventListener('error', () => tryNext());
-      // Start with first candidate
-      tryNext();
+      img.addEventListener('error', () => {
+        // only try once
+        if (img.dataset.fallbackTried === '1') return;
+        img.dataset.fallbackTried = '1';
+        img.src = 'logo.jpg';
+      });
     })();
   </script>
 </body>
