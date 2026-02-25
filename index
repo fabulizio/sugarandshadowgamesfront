@@ -1,110 +1,312 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sugar & Shadow Games</title>
+  <meta name="description" content="Sweet games for families. Dark games for brave players." />
 
-body {
-  font-family: "Georgia", serif;
-  background-color: #ffffff;
-  color: #111;
-  line-height: 1.6;
-}
+  <link rel="stylesheet" href="style.css" />
 
-.container {
-  width: 90%;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 60px 0;
-}
+  <!-- Optional: nicer serif + clean sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300,400,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-header {
-  border-bottom: 1px solid #eee;
-  padding: 20px 0;
-}
+  <link rel="icon" type="image/png" href="assets/logo.png">
+</head>
 
-header h1 {
-  font-size: 1.5rem;
-  font-weight: normal;
-}
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-nav {
-  margin-top: 10px;
-}
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Sugar & Shadow Games home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-name">Sugar & Shadow Games</span>
+      </a>
 
-nav a {
-  margin-right: 20px;
-  text-decoration: none;
-  color: #111;
-  font-size: 0.9rem;
-}
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#games">Games</a>
+        <a href="#community">Community</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-nav a:hover {
-  opacity: 0.6;
-}
+      <a class="cta" href="#contact">Join the Circle</a>
+    </div>
+  </header>
 
-.hero {
-  text-align: center;
-  padding: 100px 0;
-}
+  <main id="main">
+    <!-- HERO -->
+    <section id="top" class="hero">
+      <div class="container hero-inner">
+        <div class="hero-left">
+          <img class="hero-logo" src="assets/logo.png" alt="Sugar & Shadow Games logo" />
+        </div>
 
-.hero h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
+        <div class="hero-right">
+          <p class="kicker">Boutique indie studio</p>
+          <h1>
+            Sweet games for families.<br />
+            Dark games for brave players.
+          </h1>
+          <p class="lead">
+            We release 1–2 carefully crafted games per year. Simple to learn, hard to forget.
+            <span class="muted">Every game has a shadow.</span>
+          </p>
 
-.hero p {
-  margin-bottom: 30px;
-  color: #555;
-}
+          <div class="hero-actions">
+            <a class="button primary" href="#games">Explore Games</a>
+            <a class="button ghost" href="#about">Our Philosophy</a>
+          </div>
 
-.btn {
-  display: inline-block;
-  padding: 12px 25px;
-  border: 1px solid #111;
-  text-decoration: none;
-  color: #111;
-  transition: all 0.3s ease;
-}
+          <div class="hero-badges" aria-label="Studio highlights">
+            <span class="badge sugar">Sugar line • Family & kids 8+</span>
+            <span class="badge shadow">Shadow line • Adults</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-.btn:hover {
-  background-color: #111;
-  color: #fff;
-}
+    <!-- ABOUT -->
+    <section id="about" class="section section-sugar">
+      <div class="container">
+        <div class="section-head">
+          <h2>About Us</h2>
+          <p>
+            Sugar & Shadow Games designs two moods under one roof:
+            bright, playful experiences for families — and deep, atmospheric journeys for adults.
+          </p>
+        </div>
 
-h3 {
-  font-size: 1.8rem;
-  margin-bottom: 30px;
-}
+        <div class="grid-3">
+          <article class="card">
+            <h3>Our promise</h3>
+            <p>
+              We design with intention: clean rules, memorable moments, and a strong identity.
+              Few releases, high care.
+            </p>
+          </article>
 
-.game-card {
-  margin-bottom: 30px;
-}
+          <article class="card">
+            <h3>Sugar</h3>
+            <p>
+              Fast, friendly games you can teach in a minute. Laughs, shouts, and instant replay.
+            </p>
+          </article>
 
-.dark-section {
-  background-color: #111;
-  color: #fff;
-}
+          <article class="card card-shadow">
+            <h3>Shadow</h3>
+            <p>
+              Darker themes, tougher choices, richer strategy — built for players who want intensity.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-.dark-section a {
-  color: #fff;
-}
+    <!-- GAMES -->
+    <section id="games" class="section section-shadow">
+      <div class="container">
+        <div class="section-head">
+          <h2>Games</h2>
+          <p>
+            Three worlds. One studio voice. Here are our current projects — more details soon.
+          </p>
+        </div>
 
-.testimonial {
-  margin-bottom: 30px;
-  font-style: italic;
-}
+        <div class="games-grid">
+          <article class="game">
+            <div class="game-top">
+              <span class="pill sugar">Sugar</span>
+              <span class="meta">Cards • 1v1 • 5 min</span>
+            </div>
+            <h3>Opposite!</h3>
+            <p>
+              A fast reflex card game. Flip a card, shout the opposite in 3 seconds… or fall into the Shadow pile.
+            </p>
+            <ul class="bullets">
+              <li>Family chaos, instantly teachable</li>
+              <li>Language-light (illustrations)</li>
+              <li>Perfect for clips & challenges</li>
+            </ul>
+            <div class="game-actions">
+              <a class="button small ghost" href="#contact">Become a playtester</a>
+              <a class="button small primary" href="#community">See feedback</a>
+            </div>
+          </article>
 
-footer {
-  text-align: center;
-  padding: 40px 0;
-  border-top: 1px solid #eee;
-  font-size: 0.8rem;
-  color: #777;
-}
+          <article class="game">
+            <div class="game-top">
+              <span class="pill sugar">Sugar</span>
+              <span class="meta">1 vs Many • 20 min</span>
+            </div>
+            <h3>Coletazo</h3>
+            <p>
+              A cute-but-clever 1 vs many family strategy game. Light on rules, rich in decisions.
+            </p>
+            <ul class="bullets">
+              <li>Tactical, replayable, friendly</li>
+              <li>Strong table presence</li>
+              <li>Designed for families & kids 8+</li>
+            </ul>
+            <div class="game-actions">
+              <a class="button small ghost" href="#contact">Join the waitlist</a>
+              <a class="button small primary" href="#contact">Collaborate</a>
+            </div>
+          </article>
 
-@media (max-width: 768px) {
-  .hero h2 {
-    font-size: 1.5rem;
-  }
-}
+          <article class="game game-shadow">
+            <div class="game-top">
+              <span class="pill shadow">Shadow</span>
+              <span class="meta">Adults • up to 5 hours</span>
+            </div>
+            <h3>Hauntings</h3>
+            <p>
+              An ambitious esoteric experience. Ritual tension, long arcs, and consequences that linger.
+            </p>
+            <ul class="bullets">
+              <li>Atmospheric, narrative-forward design</li>
+              <li>High commitment, high reward</li>
+              <li>Built for dedicated adult tables</li>
+            </ul>
+            <div class="game-actions">
+              <a class="button small ghost" href="#contact">Request updates</a>
+              <a class="button small primary" href="#about">Studio philosophy</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="callout">
+          <p>
+            <strong>Want early access?</strong> Join the Circle to get playtest calls, previews, and release news.
+          </p>
+          <a class="button primary" href="#contact">Join the Circle</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMUNITY -->
+    <section id="community" class="section section-sugar">
+      <div class="container">
+        <div class="section-head">
+          <h2>Community Feedback</h2>
+          <p>
+            Early reactions shape our games. Here are placeholders — replace with real quotes as you collect them.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <figure class="quote">
+            <blockquote>
+              “Opposite! turned our living room into a screaming match — in the best way.”
+            </blockquote>
+            <figcaption>— Playtester, Family Night</figcaption>
+          </figure>
+
+          <figure class="quote quote-shadow">
+            <blockquote>
+              “Hauntings feels like opening a door you can’t close again.”
+            </blockquote>
+            <figcaption>— Early reader, Shadow Circle</figcaption>
+          </figure>
+
+          <figure class="quote">
+            <blockquote>
+              “Coletazo is cute on the surface, but there’s real strategy underneath.”
+            </blockquote>
+            <figcaption>— Parent playtester</figcaption>
+          </figure>
+
+          <figure class="quote">
+            <blockquote>
+              “The brand is instantly memorable. The contrast is the hook.”
+            </blockquote>
+            <figcaption>— Designer friend</figcaption>
+          </figure>
+        </div>
+
+        <div class="microform">
+          <h3>Share feedback</h3>
+          <p class="muted">
+            Static site note: this form is a placeholder. Easiest option is linking to a Google Form.
+          </p>
+          <div class="microform-actions">
+            <a class="button ghost" href="#" title="Replace with your Google Form link">Open Feedback Form</a>
+            <a class="button primary" href="#contact">Join playtests</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section section-shadow">
+      <div class="container">
+        <div class="section-head">
+          <h2>Contact</h2>
+          <p>
+            Collaborations, playtesting, press — or just say hello.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>Email</h3>
+            <p class="muted">Fastest way to reach us.</p>
+            <p><a class="link" href="mailto:hello@sugarandshadowgames.com">hello@sugarandshadowgames.com</a></p>
+
+            <hr class="sep" />
+
+            <h3>Join the Circle</h3>
+            <p class="muted">
+              Add your ConvertKit embed here when ready (recommended).
+            </p>
+            <div class="placeholder-box">
+              <p><strong>Newsletter form placeholder</strong></p>
+              <p class="muted">Paste your ConvertKit embed code here.</p>
+            </div>
+          </div>
+
+          <div class="contact-card contact-card-sugar">
+            <h3>Contact form (placeholder)</h3>
+            <p class="muted">
+              Static sites can’t “send” forms by themselves. Options:
+              ConvertKit form, Google Forms, Formspree, or Netlify Forms.
+            </p>
+
+            <form class="form" action="#" method="post">
+              <label>
+                Name
+                <input type="text" name="name" placeholder="Your name" disabled>
+              </label>
+
+              <label>
+                Email
+                <input type="email" name="email" placeholder="you@example.com" disabled>
+              </label>
+
+              <label>
+                Message
+                <textarea name="message" rows="5" placeholder="Write your message..." disabled></textarea>
+              </label>
+
+              <button class="button primary" type="button" disabled>Send (disabled)</button>
+              <p class="tiny muted">Replace this with a real form provider when you’re ready.</p>
+            </form>
+          </div>
+        </div>
+
+        <footer class="site-footer">
+          <p>© <span id="year"></span> Sugar & Shadow Games. All rights reserved.</p>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // tiny nicety: current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
