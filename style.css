@@ -219,7 +219,7 @@ body{
   border-color: rgba(255,255,255,.18);
   box-shadow: var(--shadow-soft);
 }
-.button.primary:hover{ transform: translateY(-1px); background: #ff2f78; }
+.button.primary:hover{ transform: translateY(-1px); background: #ff3c7f; }
 
 .button.ghost{
   background: rgba(255,255,255,.7);
