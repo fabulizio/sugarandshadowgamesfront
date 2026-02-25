@@ -6,8 +6,14 @@
   <title>Sugar & Shadow Games</title>
   <meta name="description" content="Sweet games for families. Dark games for brave players." />
 
+  <!-- Social / sharing -->
+  <meta property="og:title" content="Sugar & Shadow Games" />
+  <meta property="og:description" content="Sweet games for families. Dark games for brave players." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0a0a0c" />
+
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+  <link rel="icon" type="image/jpeg" href="assets/logo.jpg" />
 </head>
 
 <body>
@@ -20,14 +26,29 @@
         <span class="brand-name">Sugar & Shadow Games</span>
       </a>
 
-      <nav class="nav">
+      <nav class="nav" aria-label="Primary">
         <a href="#about">About</a>
         <a href="#games">Games</a>
         <a href="#community">Community</a>
         <a href="#contact">Contact</a>
       </nav>
 
-      <a class="cta" href="#contact">Join the Circle</a>
+      <div class="header-actions">
+        <a class="cta" href="#contact">Join the Circle</a>
+
+        <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+          <span class="menu-bars" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileNav" class="mobile-nav" hidden>
+      <div class="container mobile-nav-inner">
+        <a href="#about">About</a>
+        <a href="#games">Games</a>
+        <a href="#community">Community</a>
+        <a href="#contact">Contact</a>
+      </div>
     </div>
   </header>
 
@@ -36,8 +57,14 @@
     <section id="top" class="hero">
       <div class="container hero-inner">
         <div class="hero-left">
-          <!-- LOGO.jpg (not png) -->
-          <img class="hero-logo" src="assets/logo.jpg" alt="Sugar & Shadow Games logo" />
+          <!-- We'll set the src via JS to avoid 404 issues (tries assets/logo.jpg then logo.jpg) -->
+          <img
+            id="heroLogo"
+            class="hero-logo"
+            src="assets/logo.jpg"
+            alt="Sugar & Shadow Games logo"
+            loading="eager"
+          />
         </div>
 
         <div class="hero-right">
@@ -249,7 +276,49 @@
   </main>
 
   <script>
+    // Year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile nav toggle
+    const btn = document.querySelector('.menu-btn');
+    const mobileNav = document.getElementById('mobileNav');
+
+    btn?.addEventListener('click', () => {
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!isOpen));
+      mobileNav.hidden = isOpen;
+    });
+
+    // Close menu after clicking a link
+    mobileNav?.addEventListener('click', (e) => {
+      const target = e.target;
+      if (target && target.tagName === 'A') {
+        btn.setAttribute('aria-expanded', 'false');
+        mobileNav.hidden = true;
+      }
+    });
+
+    // LOGO fallback (fixes 404 if path is wrong in Pages)
+    (function () {
+      const img = document.getElementById('heroLogo');
+      if (!img) return;
+
+      const candidates = [
+        'assets/logo.jpg',
+        'logo.jpg'
+      ];
+
+      let i = 0;
+      const tryNext = () => {
+        if (i >= candidates.length) return;
+        img.src = candidates[i];
+        i += 1;
+      };
+
+      img.addEventListener('error', () => tryNext());
+      // Start with first candidate
+      tryNext();
+    })();
   </script>
 </body>
 </html>
