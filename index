@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Georgia", serif;
+  background-color: #ffffff;
+  color: #111;
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 60px 0;
+}
+
+header {
+  border-bottom: 1px solid #eee;
+  padding: 20px 0;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  font-weight: normal;
+}
+
+nav {
+  margin-top: 10px;
+}
+
+nav a {
+  margin-right: 20px;
+  text-decoration: none;
+  color: #111;
+  font-size: 0.9rem;
+}
+
+nav a:hover {
+  opacity: 0.6;
+}
+
+.hero {
+  text-align: center;
+  padding: 100px 0;
+}
+
+.hero h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  margin-bottom: 30px;
+  color: #555;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  border: 1px solid #111;
+  text-decoration: none;
+  color: #111;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #111;
+  color: #fff;
+}
+
+h3 {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+}
+
+.game-card {
+  margin-bottom: 30px;
+}
+
+.dark-section {
+  background-color: #111;
+  color: #fff;
+}
+
+.dark-section a {
+  color: #fff;
+}
+
+.testimonial {
+  margin-bottom: 30px;
+  font-style: italic;
+}
+
+footer {
+  text-align: center;
+  padding: 40px 0;
+  border-top: 1px solid #eee;
+  font-size: 0.8rem;
+  color: #777;
+}
+
+@media (max-width: 768px) {
+  .hero h2 {
+    font-size: 1.5rem;
+  }
+}
