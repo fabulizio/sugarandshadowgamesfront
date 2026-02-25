@@ -128,7 +128,9 @@ body{
   border: 1px solid rgba(20,20,20,.18);
   color: var(--ink);
   background: #fff;
-  transition: border-color .12s ease, transform .12s ease;
+  transition:
+    border-color .12s ease,
+    transform .14s cubic-bezier(.2,.9,.2,1.2);
 }
 .cta:hover{ border-color: rgba(20,20,20,.35); transform: translateY(-1px); }
 
@@ -142,7 +144,9 @@ body{
   height: 44px;
   cursor: pointer;
   box-shadow: var(--shadow-soft);
-  transition: border-color .12s ease, transform .12s ease;
+  transition:
+    border-color .12s ease,
+    transform .14s cubic-bezier(.2,.9,.2,1.2);
 }
 .menu-btn:hover{ border-color: rgba(20,20,20,.35); transform: translateY(-1px); }
 
@@ -191,7 +195,9 @@ body{
   border-radius: 12px;
   background: rgba(255,255,255,.6);
   border: 1px solid rgba(20,20,20,.12);
-  transition: border-color .12s ease;
+  transition:
+    border-color .12s ease,
+    transform .14s cubic-bezier(.2,.9,.2,1.2);
 }
 .mobile-nav a:hover{ border-color: rgba(20,20,20,.25); }
 
@@ -209,7 +215,11 @@ body{
   font-size: .95rem;
   cursor: pointer;
   user-select:none;
-  transition: transform .12s ease, background .12s ease, border-color .12s ease, opacity .12s ease;
+  transition:
+    transform .14s cubic-bezier(.2,.9,.2,1.2),
+    background .12s ease,
+    border-color .12s ease,
+    opacity .12s ease;
 }
 .button.small{ padding: 10px 14px; font-size: .9rem; }
 
@@ -227,6 +237,21 @@ body{
   border-color: rgba(20,20,20,.18);
 }
 .button.ghost:hover{ border-color: rgba(20,20,20,.35); transform: translateY(-1px); }
+
+/* ✅ Press / bump on click (buttons + header actions + mobile links) */
+.button:active{
+  transform: translateY(1px) scale(0.98);
+  transition-duration: .06s;
+}
+.cta:active,
+.menu-btn:active{
+  transform: translateY(1px) scale(0.98);
+  transition-duration: .06s;
+}
+.mobile-nav a:active{
+  transform: translateY(1px) scale(0.99);
+  transition-duration: .06s;
+}
 
 /* Better ghost buttons on dark surfaces */
 .section-shadow .button.ghost,
@@ -548,9 +573,11 @@ body{
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior: auto; }
   .button, .cta, .nav a, .link,
-  .card, .quote, .game, .contact-card{
+  .card, .quote, .game, .contact-card,
+  .menu-btn, .mobile-nav a{
     transition: none;
   }
   .button.primary:hover{ transform: none; }
   .card:hover, .quote:hover, .game:hover, .contact-card:hover{ transform: none; }
+  .button:active, .cta:active, .menu-btn:active, .mobile-nav a:active{ transform: none; }
 }
