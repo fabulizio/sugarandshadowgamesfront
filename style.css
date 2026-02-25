@@ -28,10 +28,17 @@
 html{ scroll-behavior: smooth; }
 body{
   margin:0;
-  font-family: Arial, Helvetica, sans-serif; /* ✅ not newspaper */
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, Helvetica, sans-serif;
   line-height: 1.6;
   color: var(--ink);
   background: linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%);
+}
+
+/* Focus visibility */
+:focus-visible{
+  outline: 3px solid rgba(255,79,138,.85);
+  outline-offset: 3px;
+  border-radius: 10px;
 }
 
 /* Accessibility */
@@ -100,8 +107,15 @@ body{
   font-size: .95rem;
   opacity: .9;
   font-weight: 700;
+  transition: opacity .12s ease;
 }
 .nav a:hover{ opacity: 1; text-decoration: underline; text-underline-offset: 6px; }
+
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+}
 
 .cta{
   text-decoration:none;
@@ -112,8 +126,69 @@ body{
   border: 1px solid rgba(20,20,20,.18);
   color: var(--ink);
   background: #fff;
+  transition: border-color .12s ease, transform .12s ease;
 }
-.cta:hover{ border-color: rgba(20,20,20,.35); }
+.cta:hover{ border-color: rgba(20,20,20,.35); transform: translateY(-1px); }
+
+/* Hamburger */
+.menu-btn{
+  display:none;
+  border: 1px solid rgba(20,20,20,.18);
+  background: #fff;
+  border-radius: 999px;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  transition: border-color .12s ease, transform .12s ease;
+}
+.menu-btn:hover{ border-color: rgba(20,20,20,.35); transform: translateY(-1px); }
+
+.menu-bars{
+  display:block;
+  width: 18px;
+  height: 2px;
+  background: var(--ink);
+  border-radius: 99px;
+  position: relative;
+  margin: 0 auto;
+}
+.menu-bars::before,
+.menu-bars::after{
+  content:"";
+  position:absolute;
+  left:0;
+  width: 18px;
+  height: 2px;
+  background: var(--ink);
+  border-radius: 99px;
+}
+.menu-bars::before{ top:-6px; }
+.menu-bars::after{ top:6px; }
+
+/* Mobile dropdown */
+.mobile-nav{
+  border-bottom: 1px solid var(--line);
+  background: rgba(246,239,238,.98);
+  backdrop-filter: blur(10px);
+}
+.mobile-nav-inner{
+  display:flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px 0 16px;
+}
+.mobile-nav a{
+  text-decoration:none;
+  color: var(--ink);
+  font-weight: 800;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.6);
+  border: 1px solid rgba(20,20,20,.12);
+  transition: border-color .12s ease;
+}
+.mobile-nav a:hover{ border-color: rgba(20,20,20,.25); }
 
 /* Buttons */
 .button{
@@ -129,6 +204,7 @@ body{
   font-size: .95rem;
   cursor: pointer;
   user-select:none;
+  transition: transform .12s ease, background .12s ease, border-color .12s ease, opacity .12s ease;
 }
 .button.small{ padding: 10px 14px; font-size: .9rem; }
 
@@ -145,7 +221,7 @@ body{
   color: var(--ink);
   border-color: rgba(20,20,20,.18);
 }
-.button.ghost:hover{ border-color: rgba(20,20,20,.35); }
+.button.ghost:hover{ border-color: rgba(20,20,20,.35); transform: translateY(-1px); }
 
 /* Hero */
 .hero{ padding: 34px 0 22px; }
@@ -232,7 +308,7 @@ body{
   background: linear-gradient(180deg, rgba(255,255,255,.45) 0%, rgba(255,255,255,.25) 100%);
 }
 
-/* Shadow section (✅ solid black, no reflection/glow) */
+/* Shadow section (solid black, no reflection/glow) */
 .section-shadow{
   background: var(--shadow);
   color: #fff;
@@ -390,6 +466,7 @@ body{
   color: #fff;
   text-decoration: none;
   border-bottom: 2px solid rgba(255,79,138,.75);
+  transition: opacity .12s ease;
 }
 .link:hover{ opacity: .9; }
 
@@ -414,10 +491,20 @@ body{
   .hero-inner{ grid-template-columns: 1fr; }
   .hero-left{ display:flex; justify-content:center; }
   .hero-logo{ max-width: 520px; }
+
   .games-grid{ grid-template-columns: 1fr; }
   .grid-3{ grid-template-columns: 1fr; }
   .grid-2{ grid-template-columns: 1fr; }
   .contact-grid{ grid-template-columns: 1fr; }
   .callout{ flex-direction: column; align-items: flex-start; }
+
   .nav{ display:none; }
+  .menu-btn{ display:inline-flex; align-items:center; justify-content:center; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+  .button, .cta, .nav a, .link{ transition: none; }
+  .button.primary:hover{ transform: none; }
 }
