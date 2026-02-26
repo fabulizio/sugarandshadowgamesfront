@@ -400,13 +400,13 @@ body{
   margin-top: 18px;
 }
 
-/* ✅ Game cards with background images (NO shorthand background here) */
+/* ✅ Game cards: image layer + shadow overlay (so images show) */
 .game{
   position: relative;
   overflow: hidden;
 
-  /* fallback color if image fails */
-  background-color: var(--shadow-2);
+  /* important: don’t paint a solid black panel */
+  background-color: transparent;
 
   border: 1px solid rgba(255,255,255,.14);
   border-radius: var(--radius);
@@ -414,38 +414,46 @@ body{
   box-shadow: 0 20px 55px rgba(0,0,0,.40);
 }
 
-/* content above overlay */
-.game > *{
-  position: relative;
-  z-index: 1;
-}
-
-/* overlay for readability */
+/* image layer */
 .game::before{
   content:"";
   position:absolute;
   inset:0;
   z-index:0;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: var(--shadow-2); /* fallback if image fails */
+}
+
+/* shadow overlay for readability */
+.game::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+
   background: linear-gradient(
     to bottom,
-    rgba(10,10,12,.35),
-    rgba(10,10,12,.85)
+    rgba(10,10,12,.30),
+    rgba(10,10,12,.82)
   );
 }
 
-/* ✅ Specific game backgrounds */
-.game-opposite{
-  background-image: url("assets/REVERSO cards.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+/* content above both layers */
+.game > *{
+  position: relative;
+  z-index: 2;
 }
 
-.game-coletazo{
+/* ✅ Specific game images (apply to ::before) */
+.game-opposite::before{
+  background-image: url("assets/REVERSO cards.jpg");
+}
+
+.game-coletazo::before{
   background-image: url("assets/COLETAZO cards.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 .game h3{ margin: 8px 0; font-size: 1.35rem; font-weight: 900; }
