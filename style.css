@@ -400,13 +400,13 @@ body{
   margin-top: 18px;
 }
 
-/* ✅ Game cards: image layer + shadow overlay (so images show) */
+/* ✅ Game cards base */
 .game{
   position: relative;
   overflow: hidden;
 
-  /* important: don’t paint a solid black panel */
-  background-color: transparent;
+  /* current dark base stays */
+  background-color: var(--shadow-2);
 
   border: 1px solid rgba(255,255,255,.14);
   border-radius: var(--radius);
@@ -414,46 +414,53 @@ body{
   box-shadow: 0 20px 55px rgba(0,0,0,.40);
 }
 
-/* image layer */
-.game::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:0;
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: var(--shadow-2); /* fallback if image fails */
-}
-
-/* shadow overlay for readability */
-.game::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:1;
-
-  background: linear-gradient(
-    to bottom,
-    rgba(10,10,12,.30),
-    rgba(10,10,12,.82)
-  );
-}
-
-/* content above both layers */
+/* content above overlays */
 .game > *{
   position: relative;
   z-index: 2;
 }
 
-/* ✅ Specific game images (apply to ::before) */
-.game-opposite::before{
-  background-image: url("assets/REVERSO cards.jpg");
+/* optional global readability overlay (kept subtle) */
+.game::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background: linear-gradient(
+    to bottom,
+    rgba(10,10,12,.18),
+    rgba(10,10,12,.55)
+  );
 }
 
+/* ✅ Add REVERSO image at 50% transparency OVER the current background */
+.game-opposite::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+
+  background-image: url("assets/REVERSO cards.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: .5; /* 50% transparency */
+}
+
+/* (Keep Coletazo unchanged here, or add similar rule if needed) */
 .game-coletazo::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+
   background-image: url("assets/COLETAZO cards.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: .5; /* 50% transparency */
 }
 
 .game h3{ margin: 8px 0; font-size: 1.35rem; font-weight: 900; }
