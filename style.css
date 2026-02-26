@@ -434,7 +434,7 @@ body{
 }
 
 /* ✅ Add REVERSO image at 50% transparency OVER the current background */
-.game-opposite::before{
+.game-reverso::before{
   content:"";
   position:absolute;
   inset:0;
@@ -463,6 +463,20 @@ body{
   opacity: .5; /* 50% transparency */
 }
 
+/* (Keep Coletazo unchanged here, or add similar rule if needed) */
+.game-hauntings::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+
+  background-image: url("logo.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: .5; /* 50% transparency */
+}
 .game h3{ margin: 8px 0; font-size: 1.35rem; font-weight: 900; }
 .game p{ margin: 0 0 12px; color: rgba(255,255,255,.80); font-weight: 600; }
 .game .meta{ color: rgba(255,255,255,.70); font-size: .9rem; font-weight: 700; }
