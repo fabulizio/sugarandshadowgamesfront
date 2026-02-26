@@ -369,29 +369,67 @@ body{
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
 }
+
 .grid-2{
   display:grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
 }
+
 .card{
   background: rgba(255,255,255,.75);
   border: 1px solid rgba(20,20,20,.12);
   border-radius: var(--radius);
   padding: 18px;
   box-shadow: var(--shadow-soft);
+  transition: transform .12s ease, border-color .12s ease;
 }
-.card h3{ margin: 0 0 8px; font-weight: 900; }
-.card p{ margin: 0; color: rgba(20,20,20,.75); font-weight: 600; }
 
+.card:hover{
+  transform: translateY(-2px);
+}
+
+.card h3{
+  margin: 0 0 8px;
+  font-weight: 900;
+}
+
+.card p{
+  margin: 0;
+  color: rgba(20,20,20,.75);
+  font-weight: 600;
+}
+
+
+/* 🔥 Sugar card (pink like cube) */
+.card-sugar{
+  background: linear-gradient(
+    180deg,
+    rgba(255,79,138,.25),
+    rgba(255,79,138,.12)
+  );
+  border-color: rgba(255,79,138,.45);
+}
+
+.card-sugar h3{
+  color: #c2185b;
+}
+
+
+/* Shadow card */
 .card-shadow{
   background: var(--shadow-2);
   border-color: var(--line-dark);
   box-shadow: var(--shadow-deep);
 }
-.card-shadow h3{ color:#fff; }
-.card-shadow p{ color: rgba(255,255,255,.75); }
 
+.card-shadow h3{
+  color:#fff;
+}
+
+.card-shadow p{
+  color: rgba(255,255,255,.75);
+}
 /* Games */
 .games-grid{
   display:grid;
