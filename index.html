@@ -67,7 +67,6 @@
     <section class="hero">
       <div class="container hero-inner">
         <div class="hero-left">
-          <!-- Use JS fallback list (assets/logo.jpg -> logo.jpg) -->
           <img
             id="heroLogo"
             class="hero-logo"
@@ -85,7 +84,7 @@
             Dark games for brave players.
           </h1>
           <p class="lead">
-           Simple to learn, hard to forget.
+            Simple to learn, hard to forget.
             <span class="muted">Every game has a shadow.</span>
           </p>
 
@@ -148,7 +147,8 @@
         </div>
 
         <div class="games-grid">
-          <article class="game">
+          <!-- ✅ background image: assets/REVERSO cards.jpg -->
+          <article class="game game-opposite">
             <div class="game-top">
               <span class="pill sugar">Sugar</span>
               <span class="meta">Cards • 1v1 • 5 min</span>
@@ -168,7 +168,8 @@
             </div>
           </article>
 
-          <article class="game">
+          <!-- ✅ background image: assets/COLETAZO cards.jpg -->
+          <article class="game game-coletazo">
             <div class="game-top">
               <span class="pill sugar">Sugar</span>
               <span class="meta">1 vs Many • 20 min</span>
@@ -301,7 +302,6 @@
       btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
       mobileNav.hidden = !open;
       if (open) {
-        // move focus into the menu for keyboard users
         const firstLink = mobileNav.querySelector('a');
         firstLink && firstLink.focus();
       } else {
@@ -333,7 +333,6 @@
       if (!img) return;
 
       img.addEventListener('error', () => {
-        // only try once
         if (img.dataset.fallbackTried === '1') return;
         img.dataset.fallbackTried = '1';
         img.src = 'logo.jpg';
