@@ -440,7 +440,7 @@ body{
   inset:0;
   z-index:0;
 
-  background-image: url("assets/reverso_cards.jpg");
+  background-image: url("reverso_cards.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -455,7 +455,7 @@ body{
   inset:0;
   z-index:0;
 
-  background-image: url("assets/coletazo_cards.jpg");
+  background-image: url("coletazo_cards.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
