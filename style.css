@@ -238,7 +238,7 @@ body{
 }
 .button.ghost:hover{ border-color: rgba(20,20,20,.35); transform: translateY(-1px); }
 
-/* ✅ Press / bump on click (buttons + header actions + mobile links) */
+/* ✅ Press / bump on click */
 .button:active{
   transform: translateY(1px) scale(0.98);
   transition-duration: .06s;
@@ -355,7 +355,7 @@ body{
   background: linear-gradient(180deg, rgba(255,255,255,.45) 0%, rgba(255,255,255,.25) 100%);
 }
 
-/* Shadow section (solid black, no reflection/glow) */
+/* Shadow section */
 .section-shadow{
   background: var(--shadow);
   color: #fff;
@@ -400,26 +400,27 @@ body{
   margin-top: 18px;
 }
 
-/* ✅ Background image support for game cards */
+/* ✅ Game cards with background images (NO shorthand background here) */
 .game{
   position: relative;
   overflow: hidden;
 
-  /* existing look */
-  background: var(--shadow-2);
+  /* fallback color if image fails */
+  background-color: var(--shadow-2);
+
   border: 1px solid rgba(255,255,255,.14);
   border-radius: var(--radius);
   padding: 18px;
   box-shadow: 0 20px 55px rgba(0,0,0,.40);
 }
 
-/* Put content above overlay */
+/* content above overlay */
 .game > *{
   position: relative;
   z-index: 1;
 }
 
-/* Readability overlay */
+/* overlay for readability */
 .game::before{
   content:"";
   position:absolute;
@@ -427,12 +428,12 @@ body{
   z-index:0;
   background: linear-gradient(
     to bottom,
-    rgba(10,10,12,.55),
+    rgba(10,10,12,.35),
     rgba(10,10,12,.85)
   );
 }
 
-/* ✅ Specific backgrounds */
+/* ✅ Specific game backgrounds */
 .game-opposite{
   background-image: url("assets/REVERSO cards.jpg");
   background-size: cover;
