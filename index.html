@@ -14,7 +14,7 @@
   <meta name="theme-color" content="#0a0a0c" />
 
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/jpeg" href="assets/logo.jpg" />
+  <link rel="icon" type="image/jpeg" href="logo.jpg" />
 </head>
 
 <body>
@@ -70,7 +70,7 @@
           <img
             id="heroLogo"
             class="hero-logo"
-            src="assets/logo.jpg"
+            src="/logo.jpg"
             alt="Sugar & Shadow Games logo"
             loading="eager"
             decoding="async"
@@ -147,7 +147,7 @@
         </div>
 
         <div class="games-grid">
-          <!-- ✅ background image: assets/REVERSO cards.jpg -->
+          <!-- ✅ background image: /REVERSO cards.jpg -->
           <article class="game game-REVERSO">
             <div class="game-top">
               <span class="pill sugar">Sugar</span>
@@ -168,7 +168,7 @@
             </div>
           </article>
 
-          <!-- ✅ background image: assets/COLETAZO cards.jpg -->
+          <!-- ✅ background image: /COLETAZO cards.jpg -->
           <article class="game game-coletazo">
             <div class="game-top">
               <span class="pill sugar">Sugar</span>
@@ -327,7 +327,7 @@
       }
     });
 
-    // LOGO fallback (assets/logo.jpg -> logo.jpg)
+    // LOGO fallback (/logo.jpg -> logo.jpg)
     (function () {
       const img = document.getElementById('heroLogo');
       if (!img) return;
