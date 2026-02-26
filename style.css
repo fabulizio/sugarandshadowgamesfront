@@ -380,16 +380,16 @@ body{
   position: relative;
   overflow: hidden;
 
-  background: rgba(255,255,255,.75);
+  background: #ffffff;
   border: 1px solid rgba(20,20,20,.12);
   border-radius: var(--radius);
-  padding: 18px;
+  padding: 20px;
   box-shadow: var(--shadow-soft);
 
   transition: transform .12s ease, border-color .12s ease;
 }
 
-/* ✅ Oblique shadow gradient (all cards) */
+/* 🔥 Stronger oblique gradient */
 .card::before{
   content:"";
   position:absolute;
@@ -398,14 +398,13 @@ body{
 
   background: linear-gradient(
     135deg,
-    rgba(0,0,0,.00) 30%,
-    rgba(0,0,0,.15) 100%
+    rgba(0,0,0,.00) 40%,
+    rgba(0,0,0,.20) 100%
   );
 
   pointer-events:none;
 }
 
-/* content above overlay */
 .card > *{
   position: relative;
   z-index: 1;
@@ -416,9 +415,9 @@ body{
 }
 
 .card h3{
-  margin: 0 0 8px;
+  margin: 0 0 10px;
   font-weight: 900;
-  text-align: center; /* ✅ centered title */
+  text-align: center;
 }
 
 .card p{
@@ -427,22 +426,21 @@ body{
   font-weight: 600;
 }
 
-/* 🔥 Sugar card (pink like cube) */
+/* 🔥 Sugar card (stronger pink gradient) */
 .card-sugar{
   background: linear-gradient(
     180deg,
-    rgba(255,79,138,.25),
-    rgba(255,79,138,.12)
+    rgba(255,79,138,.35),
+    rgba(255,79,138,.18)
   );
-  border-color: rgba(255,79,138,.45);
+  border-color: rgba(255,79,138,.55);
 }
 
-/* ✅ pink oblique shadow for sugar */
 .card-sugar::before{
   background: linear-gradient(
     135deg,
-    rgba(255,79,138,.10) 0%,
-    rgba(255,79,138,.28) 100%
+    rgba(255,79,138,.10) 30%,
+    rgba(255,79,138,.45) 100%
   );
 }
 
@@ -450,24 +448,34 @@ body{
   color: #c2185b;
 }
 
-/* Shadow card */
+/* 🔥 Shadow card — dark grey to black */
 .card-shadow{
-  background: var(--shadow-2);
-  border-color: var(--line-dark);
+  background: linear-gradient(
+    180deg,
+    #2a2a2f 0%,
+    #000000 100%
+  );
+  border-color: rgba(255,255,255,.12);
   box-shadow: var(--shadow-deep);
 }
 
-/* ✅ keep overlay but tuned for dark */
+/* darker diagonal overlay */
 .card-shadow::before{
   background: linear-gradient(
     135deg,
-    rgba(255,255,255,.04) 0%,
-    rgba(0,0,0,.28) 100%
+    rgba(255,255,255,.05) 0%,
+    rgba(0,0,0,.60) 100%
   );
 }
 
-.card-shadow h3{ color:#fff; }
-.card-shadow p{ color: rgba(255,255,255,.75); }
+.card-shadow h3{
+  color:#fff;
+}
+
+.card-shadow p{
+  color: rgba(255,255,255,.75);
+}
+
 
 /* Games */
 .games-grid{
