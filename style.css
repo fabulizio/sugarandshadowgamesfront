@@ -753,21 +753,3 @@ body{
   .card:hover, .quote:hover, .game:hover, .contact-card:hover{ transform: none; }
   .button:active, .cta:active, .menu-btn:active, .mobile-nav a:active{ transform: none; }
 }
-
-/* FORCE center About title + text (override) */
-section#about .section-head{
-  text-align: center !important;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-section#about .section-head h2,
-section#about .section-head p{
-  text-align: center !important;
-}
-
-section#about .section-head p{
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
