@@ -399,13 +399,54 @@ body{
   gap: 16px;
   margin-top: 18px;
 }
+
+/* ✅ Background image support for game cards */
 .game{
+  position: relative;
+  overflow: hidden;
+
+  /* existing look */
   background: var(--shadow-2);
   border: 1px solid rgba(255,255,255,.14);
   border-radius: var(--radius);
   padding: 18px;
   box-shadow: 0 20px 55px rgba(0,0,0,.40);
 }
+
+/* Put content above overlay */
+.game > *{
+  position: relative;
+  z-index: 1;
+}
+
+/* Readability overlay */
+.game::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  background: linear-gradient(
+    to bottom,
+    rgba(10,10,12,.55),
+    rgba(10,10,12,.85)
+  );
+}
+
+/* ✅ Specific backgrounds */
+.game-opposite{
+  background-image: url("assets/REVERSO cards.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.game-coletazo{
+  background-image: url("assets/COLETAZO cards.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .game h3{ margin: 8px 0; font-size: 1.35rem; font-weight: 900; }
 .game p{ margin: 0 0 12px; color: rgba(255,255,255,.80); font-weight: 600; }
 .game .meta{ color: rgba(255,255,255,.70); font-size: .9rem; font-weight: 700; }
