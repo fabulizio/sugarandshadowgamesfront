@@ -666,7 +666,8 @@ body{
   grid-template-columns: 1fr;
   gap: 16px;
   margin-top: 18px;
-  max-width: 720px;
+  max-width: 1000px;   /* wider */
+  width: 100%;
 }
 #contact .container{
   display:flex;
