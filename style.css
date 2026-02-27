@@ -753,3 +753,18 @@ body{
   .card:hover, .quote:hover, .game:hover, .contact-card:hover{ transform: none; }
   .button:active, .cta:active, .menu-btn:active, .mobile-nav a:active{ transform: none; }
 }
+
+/* Newsletter embed */
+.newsletter-embed{
+  margin-top: 14px;
+}
+
+.newsletter-embed iframe{
+  width: 100%;
+  max-width: 540px;
+  height: 305px;
+  border: 0;
+  border-radius: 14px;              /* matches your rounded look */
+  overflow: hidden;
+  background: rgba(255,255,255,.06); /* sits nicely on dark */
+}
