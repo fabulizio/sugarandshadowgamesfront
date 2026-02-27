@@ -774,3 +774,12 @@ body{
   overflow: hidden;
   background: rgba(255,255,255,.06); /* sits nicely on dark */
 }
+
+.newsletter-embed iframe{
+  width: 100%;
+  max-width: 560px;
+  height: 420px;     /* increase height so no scroll appears */
+  border: 0;
+  border-radius: 18px;
+  display: block;
+}
