@@ -302,41 +302,50 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
+<!-- CONTACT -->
+<section id="contact" class="section section-shadow">
+  <div class="container">
 
-            <h3>Email</h3>
-            <p class="muted-on-dark">Fastest way to reach us.</p>
-            <p><a class="link" href="mailto:hello@sugarandshadowgames.com">hello@sugarandshadowgames.com</a></p>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>Email</h3>
+        <p class="muted-on-dark">Fastest way to reach us.</p>
+        <p>
+          <a class="link" href="mailto:hello@sugarandshadowgames.com">
+            hello@sugarandshadowgames.com
+          </a>
+        </p>
 
-            <hr class="sep" />
+        <hr class="sep" />
 
-            <div class="newsletter">
-              <div class="newsletter-head">
-                <h3>Join the Circle</h3>
-                <p class="muted-on-dark">Playtests, previews, and release news. No spam.</p>
+        <div class="newsletter">
+          <div class="newsletter-head">
+            <h3>Join the Circle</h3>
+            <p class="muted-on-dark">Playtests, previews, and release news. No spam.</p>
+          </div>
+
+          <div class="brevo-form">
+            <form class="brevo" action="PASTE_BREVO_ACTION_URL" method="post" novalidate>
+              <label class="sr-only" for="EMAIL">Email address</label>
+
+              <div class="brevo-row">
+                <input id="EMAIL" name="email" type="email" placeholder="you@email.com" required />
+                <button type="submit" class="button primary">Subscribe</button>
               </div>
 
-              <div class="brevo-form">
-                <form class="brevo" action="PASTE_BREVO_ACTION_URL" method="post" novalidate>
-                  <label class="sr-only" for="EMAIL">Email address</label>
-
-                  <div class="brevo-row">
-                    <input id="EMAIL" name="email" type="email" placeholder="you@email.com" required />
-                    <button type="submit" class="button primary">Subscribe</button>
-                  </div>
-
-                  <p class="brevo-help">We’ll only email you for studio updates. Unsubscribe any time.</p>
-                </form>
-              </div>
-            </div>
+              <p class="brevo-help">We’ll only email you for studio updates. Unsubscribe any time.</p>
+            </form>
           </div>
         </div>
-
-        <footer class="site-footer">
-          <p>© <span id="year"></span> Sugar &amp; Shadow Games. All rights reserved.</p>
-        </footer>
       </div>
-    </section>
+    </div>
+
+    <footer class="site-footer">
+      <p>© <span id="year"></span> Sugar &amp; Shadow Games. All rights reserved.</p>
+    </footer>
+
+  </div>
+</section>
   </main>
 
   <script>
