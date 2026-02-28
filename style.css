@@ -70,14 +70,16 @@ body{
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
 }
+
+/* ✅ Updated header layout: nav centered, actions on right */
 .header-inner{
   display:flex;
   align-items:center;
-  justify-content: space-between;
   gap: 14px;
   padding: 14px 0;
 }
 
+/* Brand (unused right now but kept) */
 .brand{
   display:flex;
   align-items:center;
@@ -97,11 +99,13 @@ body{
   letter-spacing: .2px;
 }
 
+/* ✅ Nav centered */
 .nav{
   display:flex;
   gap: 18px;
   flex-wrap: wrap;
   justify-content:center;
+  margin: 0 auto;
 }
 .nav a{
   text-decoration:none;
@@ -113,7 +117,9 @@ body{
 }
 .nav a:hover{ opacity: 1; text-decoration: underline; text-underline-offset: 6px; }
 
+/* ✅ Actions pinned to far right */
 .header-actions{
+  margin-left: auto;
   display:flex;
   align-items:center;
   gap: 10px;
@@ -506,7 +512,6 @@ body{
   position: relative;
   overflow: hidden;
 
-  /* current dark base stays */
   background-color: var(--shadow-2);
 
   border: 1px solid rgba(255,255,255,.14);
@@ -521,7 +526,7 @@ body{
   z-index: 2;
 }
 
-/* optional global readability overlay (kept subtle) */
+/* ✅ Updated readability overlay: less grey wash, more contrast */
 .game::after{
   content:"";
   position:absolute;
@@ -529,12 +534,12 @@ body{
   z-index:1;
   background: linear-gradient(
     to bottom,
-    rgba(120,120,120,.35),  /* soft grey top */
-    rgba(0,0,0,.65)         /* black bottom */
+    rgba(0,0,0,.20),
+    rgba(0,0,0,.72)
   );
 }
 
-/* ✅ Add REVERSO image at 50% transparency OVER the current background */
+/* ✅ Background images */
 .game-reverso::before{
   content:"";
   position:absolute;
@@ -761,21 +766,10 @@ body{
   .button:active, .cta:active, .menu-btn:active, .mobile-nav a:active{ transform: none; }
 }
 
-/* Newsletter embed */
+/* ✅ Newsletter embed (single rule; removed duplicates) */
 .newsletter-embed{
   margin-top: 14px;
 }
-
-.newsletter-embed iframe{
-  width: 100%;
-  max-width: 540px;
-  height: 305px;
-  border: 0;
-  border-radius: 14px;              /* matches your rounded look */
-  overflow: hidden;
-  background: rgba(255,255,255,.06); /* sits nicely on dark */
-}
-
 .newsletter-embed iframe{
   width: 100%;
   max-width: 560px;
@@ -783,4 +777,6 @@ body{
   border: 0;
   border-radius: 18px;
   display: block;
+  overflow: hidden;
+  background: rgba(255,255,255,.06);
 }
