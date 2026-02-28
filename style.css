@@ -22,6 +22,9 @@
 
   --shadow-soft: 0 18px 45px rgba(0,0,0,.10);
   --shadow-deep: 0 22px 60px rgba(0,0,0,.35);
+
+  /* ✅ smoother, cleaner transitions */
+  --fade: 140px; /* height of the top/bottom fade in shadow sections */
 }
 
 /* Reset */
@@ -347,19 +350,6 @@ body{
   overflow: hidden;
 }
 
-/* ✅ Section-to-section transition: fade edges over 10% (top + bottom) */
-.section::before,
-.section::after{
-  content:"";
-  position:absolute;
-  left:0; right:0;
-  height: 10%;
-  pointer-events:none;
-  z-index: 0;
-}
-.section::before{ top:0; }
-.section::after{ bottom:0; }
-
 /* Base headings */
 .section-head{ margin-bottom: 26px; position: relative; z-index: 1; }
 .section-head h2{
@@ -376,28 +366,54 @@ body{
   font-weight: 650;
 }
 
-/* Shadow section (with 10% fade edges) */
+/* ✅ SHADOW SECTION — solid black + smooth fades (no blunt cut) */
 .section-shadow{
-  background:
-    linear-gradient(
-      180deg,
-      rgba(10,10,12,0) 0%,
-      rgba(10,10,12,1) 10%,
-      rgba(10,10,12,1) 90%,
-      rgba(10,10,12,0) 100%
-    );
+  background: var(--shadow);
   color: #fff;
-}
-.section-shadow::before{
-  background: linear-gradient(180deg, rgba(246,239,238,1), rgba(246,239,238,0));
-}
-.section-shadow::after{
-  background: linear-gradient(0deg, rgba(246,239,238,1), rgba(246,239,238,0));
+  position: relative;
+  isolation: isolate; /* clean stacking context */
 }
 .section-shadow .section-head p{ color: rgba(255,255,255,.75); }
 .muted-on-dark{ color: rgba(255,255,255,.70); }
 
-/* Sugar section (with 10% fade edges) */
+/* Fade overlays (paper -> transparent revealing black) */
+.section-shadow::before,
+.section-shadow::after{
+  content:"";
+  position:absolute;
+  left:0; right:0;
+  height: var(--fade);
+  pointer-events:none;
+  z-index: 0;
+}
+.section-shadow::before{
+  top: 0;
+  background: linear-gradient(
+    to bottom,
+    var(--paper) 0%,
+    rgba(246,239,238,0.85) 25%,
+    rgba(246,239,238,0) 100%
+  );
+}
+.section-shadow::after{
+  bottom: 0;
+  background: linear-gradient(
+    to top,
+    var(--paper) 0%,
+    rgba(246,239,238,0.85) 25%,
+    rgba(246,239,238,0) 100%
+  );
+}
+
+/* Ensure content stays above fades */
+.section-shadow > .container{ position: relative; z-index: 1; }
+
+/* ✅ Keep callout away from fade zone specifically in Games section */
+#games.section-shadow{
+  padding-bottom: calc(60px + var(--fade));
+}
+
+/* Sugar section (soft, clean) */
 .section-sugar{
   background:
     linear-gradient(
@@ -408,16 +424,8 @@ body{
       rgba(255,255,255,0) 100%
     );
 }
-.section-sugar::before{
-  background: linear-gradient(180deg, rgba(10,10,12,1), rgba(10,10,12,0));
-  opacity: .05;
-}
-.section-sugar::after{
-  background: linear-gradient(0deg, rgba(10,10,12,1), rgba(10,10,12,0));
-  opacity: .05;
-}
 
-/* ABOUT (multi-gradient + 10% fade edges) */
+/* ABOUT (multi-gradient) */
 .section-about{
   background:
     linear-gradient(
@@ -430,14 +438,6 @@ body{
     radial-gradient(900px 360px at 18% 18%, rgba(255,79,138,.18) 0%, rgba(255,79,138,0) 62%),
     radial-gradient(820px 340px at 84% 26%, rgba(10,10,12,.10) 0%, rgba(10,10,12,0) 66%),
     radial-gradient(700px 300px at 55% 110%, rgba(255,122,168,.12) 0%, rgba(255,122,168,0) 62%);
-}
-.section-about::before{
-  background: linear-gradient(180deg, rgba(10,10,12,1), rgba(10,10,12,0));
-  opacity: .06;
-}
-.section-about::after{
-  background: linear-gradient(0deg, rgba(10,10,12,1), rgba(10,10,12,0));
-  opacity: .06;
 }
 
 .about-head{
@@ -549,7 +549,7 @@ body{
 }
 .team-body p:last-child{ margin-bottom: 0; }
 
-/* Quote (no “little box”, just styled text) */
+/* Quote */
 .team-quote{
   margin-top: 10px;
   font-weight: 950;
@@ -685,7 +685,7 @@ body{
 }
 .game-shadow{ border-color: rgba(255,79,138,.22); }
 
-/* Callout */
+/* ✅ Callout — sits on full black, not on the transition */
 .callout{
   margin-top: 18px;
   display:flex;
@@ -695,9 +695,10 @@ body{
   padding: 16px 18px;
   border-radius: var(--radius);
   border: 1px solid rgba(255,255,255,.16);
-  background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+  background: var(--shadow);
+  box-shadow: var(--shadow-deep);
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 .callout p{ margin: 0; color: rgba(255,255,255,.82); font-weight: 750; }
 
