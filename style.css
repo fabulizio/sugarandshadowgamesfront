@@ -1,4 +1,4 @@
-/* style.css */
+/* style.css (UPDATED) */
 :root{
   --paper: #f6efee;
   --paper-2: #f0e6e5;
@@ -12,7 +12,6 @@
   --shadow-2: #111115;
 
   --line: rgba(20,20,20,.12);
-  --line-dark: rgba(255,255,255,.14);
 
   --radius: 18px;
 
@@ -67,7 +66,6 @@ body{
   border-bottom: 1px solid var(--line);
 }
 
-/* Center menu (grid layout) */
 .header-inner{
   display:grid;
   grid-template-columns: 1fr auto 1fr;
@@ -82,7 +80,6 @@ body{
   align-items:center;
 }
 
-/* Desktop nav */
 .nav{
   grid-column: 2;
   display:flex;
@@ -125,10 +122,6 @@ body{
   transform: translateY(-1px);
   border-color: rgba(255,79,138,.45);
   text-decoration: none;
-}
-.nav-insta:active{
-  transform: translateY(1px) scale(0.98);
-  transition-duration: .06s;
 }
 
 .header-actions{
@@ -234,12 +227,6 @@ body{
 }
 .button.ghost:hover{ border-color: rgba(20,20,20,.35); transform: translateY(-1px); }
 
-.button:active{
-  transform: translateY(1px) scale(0.98);
-  transition-duration: .06s;
-}
-
-/* Better ghost buttons on dark surfaces */
 .section-shadow .button.ghost,
 .game .button.ghost,
 .contact-card .button.ghost{
@@ -301,7 +288,7 @@ body{
   font-weight: 950;
 }
 
-/* Sections (CLEAR CUT BACKGROUNDS) */
+/* Sections (hard cuts) */
 .section{
   padding: 60px 0;
   position: relative;
@@ -323,39 +310,28 @@ body{
   font-weight: 650;
 }
 
-/* ✅ NO fades / no transitions: solid backgrounds */
 .section-shadow{
   background: var(--shadow);
   color: #fff;
 }
 .section-shadow .section-head p{ color: rgba(255,255,255,.75); }
 
-.section-sugar{
-  background: var(--paper-2);
-}
+.section-sugar{ background: var(--paper-2); }
+.section-about{ background: var(--paper); }
 
-.section-about{
-  background: var(--paper);
-}
-
-/* About card */
+/* ✅ ABOUT copy (no box) */
 .about-head{ text-align: center; }
-.about-narrative{
+.about-copy{
   width: min(840px, 92vw);
   margin: 0 auto;
-  padding: 18px 18px;
-  border-radius: var(--radius);
-  border: 1px solid rgba(20,20,20,.10);
-  background: rgba(255,255,255,.75);
-  box-shadow: 0 18px 45px rgba(0,0,0,.08);
 }
-.about-narrative p{
+.about-copy p{
   margin: 0 0 12px;
   color: rgba(20,20,20,.78);
   font-weight: 650;
   line-height: 1.75;
 }
-.about-narrative p:last-child{ margin-bottom: 0; }
+.about-copy p:last-child{ margin-bottom: 0; }
 .about-tagline{
   margin-top: 14px;
   font-weight: 950;
@@ -383,16 +359,15 @@ body{
   gap: 12px;
 }
 
-/* details reset */
 .team-card{
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: 0 14px 35px rgba(0,0,0,.10);
+  position: relative;
 }
 .team-card summary{ list-style: none; }
 .team-card summary::-webkit-details-marker{ display:none; }
 
-/* Summary header */
 .team-summary{
   display:flex;
   flex-direction: column;
@@ -401,9 +376,7 @@ body{
   cursor: pointer;
   position: relative;
 }
-
-/* Body */
-.team-body{ padding: 0 14px 16px; }
+.team-body{ padding: 0 14px 16px; position: relative; }
 .team-body p{
   margin: 0 0 12px;
   font-weight: 650;
@@ -411,7 +384,6 @@ body{
   font-size: .92rem;
 }
 .team-body p:last-child{ margin-bottom: 0; }
-
 .team-quote{
   margin-top: 10px;
   font-weight: 950;
@@ -420,18 +392,17 @@ body{
   opacity: .95;
 }
 
-/* ✅ Team backgrounds replaced with images */
+/* ✅ Background PNGs (forced relative paths) */
 .team-sugar,
 .team-shadow{
-  position: relative;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-/* Sugar team: Gaius / March / Bea */
+/* Sugar: Gaius / March / Bea */
 .team-sugar{
-  background-image: url("sugar_background.png");
+  background-image: url("./sugar_background.png");
   border: 1px solid rgba(255,79,138,.30);
 }
 .team-sugar::before{
@@ -448,16 +419,16 @@ body{
 .team-sugar .team-body p{ color: rgba(20,20,20,.75); }
 .team-sugar .team-quote{ color: rgba(20,20,20,.88); }
 
-/* Shadow team: Fab / NicK */
+/* Shadow: Fab / NicK */
 .team-shadow{
-  background-image: url("shadow_background.png");
+  background-image: url("./shadow_background.png");
   border: 1px solid rgba(255,255,255,.18);
 }
 .team-shadow::before{
   content:"";
   position:absolute;
   inset:0;
-  background: rgba(10,10,12,.62);
+  background: rgba(10,10,12,.28); /* lighter overlay so PNG is visible */
   pointer-events:none;
 }
 .team-shadow > *{ position: relative; z-index: 1; }
@@ -637,7 +608,6 @@ body{
   text-decoration: none;
   border-bottom: 2px solid rgba(255,79,138,.75);
 }
-
 .muted-on-dark{ color: rgba(255,255,255,.70); }
 
 .sep{
@@ -646,7 +616,6 @@ body{
   margin: 16px 0;
 }
 
-/* SR helper */
 .sr-only{
   position:absolute;
   width:1px; height:1px;
@@ -697,7 +666,6 @@ body{
   border-color: rgba(255,79,138,.65);
   box-shadow: 0 0 0 3px rgba(255,79,138,.14);
 }
-.brevo .button{ white-space: nowrap; }
 
 .brevo-help{
   margin: 10px 0 0;
