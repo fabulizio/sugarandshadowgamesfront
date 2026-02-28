@@ -540,11 +540,6 @@ body{
 }
 .bullets li{ margin: 8px 0; }
 
-.game-actions{
-  display:flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
 .game-shadow{ border-color: rgba(255,79,138,.22); }
 
 /* Callout */
