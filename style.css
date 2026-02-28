@@ -1,17 +1,13 @@
 /* style.css */
-/* Bold Sugar & Shadow look (based on your logo) */
 :root{
   --paper: #f6efee;
   --paper-2: #f0e6e5;
 
   --ink: #141414;
-  --muted: #5a5557;
 
-  /* BOLDER pink */
   --sugar: #ff4f8a;
   --sugar-2: #ff7aa8;
 
-  /* CLEAN, SOLID dark (no reflection / no glow) */
   --shadow: #0a0a0c;
   --shadow-2: #111115;
 
@@ -22,9 +18,6 @@
 
   --shadow-soft: 0 18px 45px rgba(0,0,0,.10);
   --shadow-deep: 0 22px 60px rgba(0,0,0,.35);
-
-  /* ✅ smoother, cleaner transitions */
-  --fade: 180px; /* height of the top/bottom fade in shadow sections */
 }
 
 /* Reset */
@@ -35,7 +28,7 @@ body{
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, Helvetica, sans-serif;
   line-height: 1.6;
   color: var(--ink);
-  background: linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%);
+  background: var(--paper);
 }
 
 /* Focus visibility */
@@ -74,7 +67,7 @@ body{
   border-bottom: 1px solid var(--line);
 }
 
-/* ✅ Center menu (grid layout) */
+/* Center menu (grid layout) */
 .header-inner{
   display:grid;
   grid-template-columns: 1fr auto 1fr;
@@ -83,6 +76,13 @@ body{
   padding: 14px 0;
 }
 
+.header-left{
+  grid-column: 1;
+  display:flex;
+  align-items:center;
+}
+
+/* Desktop nav */
 .nav{
   grid-column: 2;
   display:flex;
@@ -101,7 +101,7 @@ body{
 }
 .nav a:hover{ opacity: 1; text-decoration: underline; text-underline-offset: 6px; }
 
-/* ✅ Instagram icon next to "Contact" (inside nav) */
+/* Instagram icon */
 .nav-insta{
   display:inline-flex;
   align-items:center;
@@ -139,28 +139,6 @@ body{
   gap: 10px;
 }
 
-/* (Optional legacy) CTA styles kept (safe even if unused) */
-.cta{
-  text-decoration:none;
-  font-weight: 900;
-  font-size: .92rem;
-  padding: 10px 14px;
-  border-radius: 999px;
-  border: 1px solid rgba(20,20,20,.18);
-  color: var(--ink);
-  background: rgba(255,255,255,.85);
-  transition:
-    border-color .12s ease,
-    transform .14s cubic-bezier(.2,.9,.2,1.2),
-    opacity .12s ease;
-}
-.cta:hover{ border-color: rgba(20,20,20,.35); transform: translateY(-1px); }
-.cta-insta{
-  border-color: rgba(255,79,138,.32);
-  background: linear-gradient(180deg, rgba(255,79,138,.18), rgba(255,255,255,.78));
-}
-.cta-insta:hover{ border-color: rgba(255,79,138,.55); }
-
 /* Hamburger */
 .menu-btn{
   display:none;
@@ -171,12 +149,7 @@ body{
   height: 44px;
   cursor: pointer;
   box-shadow: var(--shadow-soft);
-  transition:
-    border-color .12s ease,
-    transform .14s cubic-bezier(.2,.9,.2,1.2);
 }
-.menu-btn:hover{ border-color: rgba(20,20,20,.35); transform: translateY(-1px); }
-
 .menu-bars{
   display:block;
   width: 18px;
@@ -222,11 +195,7 @@ body{
   border-radius: 12px;
   background: rgba(255,255,255,.6);
   border: 1px solid rgba(20,20,20,.12);
-  transition:
-    border-color .12s ease,
-    transform .14s cubic-bezier(.2,.9,.2,1.2);
 }
-.mobile-nav a:hover{ border-color: rgba(20,20,20,.25); }
 
 /* Buttons */
 .button{
@@ -265,18 +234,8 @@ body{
 }
 .button.ghost:hover{ border-color: rgba(20,20,20,.35); transform: translateY(-1px); }
 
-/* Press / bump on click */
 .button:active{
   transform: translateY(1px) scale(0.98);
-  transition-duration: .06s;
-}
-.menu-btn:active,
-.cta:active{
-  transform: translateY(1px) scale(0.98);
-  transition-duration: .06s;
-}
-.mobile-nav a:active{
-  transform: translateY(1px) scale(0.99);
   transition-duration: .06s;
 }
 
@@ -295,7 +254,7 @@ body{
 }
 
 /* Hero */
-.hero{ padding: 24px 0 18px; }
+.hero{ padding: 24px 0 18px; background: var(--paper); }
 .hero-inner{
   display:grid;
   grid-template-columns: 420px 1fr;
@@ -322,13 +281,12 @@ body{
   font-weight: 900;
 }
 
-/* Hero copy */
 .hero-manifesto{
   max-width: 68ch;
   padding: 16px 16px;
   border-radius: var(--radius);
   border: 1px solid rgba(20,20,20,.10);
-  background: linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,.32));
+  background: rgba(255,255,255,.75);
   box-shadow: 0 16px 40px rgba(0,0,0,.08);
 }
 .hero-line{
@@ -343,15 +301,14 @@ body{
   font-weight: 950;
 }
 
-/* Sections */
+/* Sections (CLEAR CUT BACKGROUNDS) */
 .section{
   padding: 60px 0;
   position: relative;
   overflow: hidden;
 }
 
-/* Base headings */
-.section-head{ margin-bottom: 26px; position: relative; z-index: 1; }
+.section-head{ margin-bottom: 26px; }
 .section-head h2{
   font-size: 2rem;
   line-height: 1.1;
@@ -366,101 +323,32 @@ body{
   font-weight: 650;
 }
 
-/* ✅ SHADOW SECTION — fades BLACK to transparent (blends into whatever is behind) */
+/* ✅ NO fades / no transitions: solid backgrounds */
 .section-shadow{
-  position: relative;
-  overflow: hidden;
+  background: var(--shadow);
   color: #fff;
-  isolation: isolate;
-  background: transparent; /* important: no fixed paper color */
 }
-
 .section-shadow .section-head p{ color: rgba(255,255,255,.75); }
-.muted-on-dark{ color: rgba(255,255,255,.70); }
 
-/* One single layer: transparent -> solid black -> transparent */
-.section-shadow::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  z-index: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(10,10,12,0) 0%,
-    rgba(10,10,12,1) var(--fade),
-    rgba(10,10,12,1) calc(100% - var(--fade)),
-    rgba(10,10,12,0) 100%
-  );
-}
-
-/* Ensure content stays above the fade layer */
-.section-shadow > .container{
-  position: relative;
-  z-index: 1;
-}
-
-/* ✅ Keep callout away from fade zone specifically in Games section */
-#games.section-shadow{
-  padding-top: calc(60px + var(--fade) * 0.8);
-  padding-bottom: calc(60px + var(--fade) * 1.8);
-}
-
-/* Sugar section (soft, clean) */
 .section-sugar{
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,0) 0%,
-      rgba(255,255,255,.42) 10%,
-      rgba(255,255,255,.28) 90%,
-      rgba(255,255,255,0) 100%
-    );
+  background: var(--paper-2);
 }
 
-/* ABOUT (multi-gradient) */
 .section-about{
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,0) 0%,
-      rgba(255,255,255,.42) 10%,
-      rgba(255,255,255,.28) 90%,
-      rgba(255,255,255,0) 100%
-    ),
-    radial-gradient(900px 360px at 18% 18%, rgba(255,79,138,.18) 0%, rgba(255,79,138,0) 62%),
-    radial-gradient(820px 340px at 84% 26%, rgba(10,10,12,.10) 0%, rgba(10,10,12,0) 66%),
-    radial-gradient(700px 300px at 55% 110%, rgba(255,122,168,.12) 0%, rgba(255,122,168,0) 62%);
+  background: var(--paper);
 }
 
-.about-head{
-  text-align: center;
-  position: relative;
-  z-index: 1;
-}
-
+/* About card */
+.about-head{ text-align: center; }
 .about-narrative{
   width: min(840px, 92vw);
   margin: 0 auto;
   padding: 18px 18px;
   border-radius: var(--radius);
   border: 1px solid rgba(20,20,20,.10);
-  background: linear-gradient(180deg, rgba(255,255,255,.62), rgba(255,255,255,.34));
+  background: rgba(255,255,255,.75);
   box-shadow: 0 18px 45px rgba(0,0,0,.08);
-  position: relative;
-  overflow: hidden;
 }
-.about-narrative::before{
-  content:"";
-  position:absolute;
-  inset:-2px;
-  pointer-events:none;
-  background: linear-gradient(135deg, rgba(255,79,138,.10), rgba(0,0,0,0), rgba(10,10,12,.06));
-  opacity: .55;
-  filter: blur(12px);
-}
-.about-narrative > *{ position: relative; z-index: 1; }
-
 .about-narrative p{
   margin: 0 0 12px;
   color: rgba(20,20,20,.78);
@@ -468,7 +356,6 @@ body{
   line-height: 1.75;
 }
 .about-narrative p:last-child{ margin-bottom: 0; }
-
 .about-tagline{
   margin-top: 14px;
   font-weight: 950;
@@ -480,8 +367,6 @@ body{
 .team{
   width: min(1020px, 92vw);
   margin: 26px auto 0;
-  position: relative;
-  z-index: 1;
 }
 
 .team-title{
@@ -503,9 +388,7 @@ body{
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: 0 14px 35px rgba(0,0,0,.10);
-  transition: transform .12s ease, border-color .12s ease;
 }
-.team-card:hover{ transform: translateY(-2px); }
 .team-card summary{ list-style: none; }
 .team-card summary::-webkit-details-marker{ display:none; }
 
@@ -518,22 +401,9 @@ body{
   cursor: pointer;
   position: relative;
 }
-.team-name{
-  font-weight: 950;
-  letter-spacing: -0.01em;
-  font-size: 1.05rem;
-}
-.team-role{
-  font-weight: 850;
-  font-size: .95rem;
-  letter-spacing: -0.01em;
-  opacity: .88;
-}
 
 /* Body */
-.team-body{
-  padding: 0 14px 16px;
-}
+.team-body{ padding: 0 14px 16px; }
 .team-body p{
   margin: 0 0 12px;
   font-weight: 650;
@@ -542,7 +412,6 @@ body{
 }
 .team-body p:last-child{ margin-bottom: 0; }
 
-/* Quote */
 .team-quote{
   margin-top: 10px;
   font-weight: 950;
@@ -551,32 +420,53 @@ body{
   opacity: .95;
 }
 
-/* Ensure ALL team boxes have inner gradients */
-.team-sugar{
-  border: 1px solid rgba(255,79,138,.24);
-  background:
-    radial-gradient(220px 140px at 18% 22%, rgba(255,79,138,.22) 0%, rgba(255,79,138,0) 70%),
-    radial-gradient(240px 170px at 92% 10%, rgba(255,122,168,.18) 0%, rgba(255,122,168,0) 72%),
-    linear-gradient(180deg, rgba(255,255,255,.75) 0%, rgba(255,255,255,.32) 100%);
-}
-.team-sugar .team-name{ color: rgba(20,20,20,.92); }
-.team-sugar .team-role{ color: rgba(194,24,91,.92); }
-.team-sugar .team-body p{ color: rgba(20,20,20,.72); }
-.team-sugar .team-quote{ color: rgba(20,20,20,.85); }
-
+/* ✅ Team backgrounds replaced with images */
+.team-sugar,
 .team-shadow{
-  border: 1px solid rgba(255,255,255,.14);
-  background:
-    radial-gradient(220px 160px at 16% 18%, rgba(255,79,138,.14) 0%, rgba(255,79,138,0) 72%),
-    radial-gradient(260px 190px at 92% 8%, rgba(255,255,255,.06) 0%, rgba(255,255,255,0) 70%),
-    linear-gradient(180deg, rgba(17,17,21,.98) 0%, rgba(10,10,12,.98) 100%);
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
-.team-shadow .team-name{ color:#fff; }
-.team-shadow .team-role{ color: rgba(255,79,138,.92); }
-.team-shadow .team-body p{ color: rgba(255,255,255,.72); }
-.team-shadow .team-quote{ color: rgba(255,255,255,.90); }
 
-/* Desktop: content can be always visible if you set open via JS; keep cursor neutral */
+/* Sugar team: Gaius / March / Bea */
+.team-sugar{
+  background-image: url("sugar_background.png");
+  border: 1px solid rgba(255,79,138,.30);
+}
+.team-sugar::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: rgba(255,255,255,.55);
+  pointer-events:none;
+}
+.team-sugar > *{ position: relative; z-index: 1; }
+
+.team-sugar .team-name{ color: rgba(20,20,20,.92); font-weight: 950; font-size: 1.05rem; }
+.team-sugar .team-role{ color: rgba(194,24,91,.92); font-weight: 850; font-size: .95rem; }
+.team-sugar .team-body p{ color: rgba(20,20,20,.75); }
+.team-sugar .team-quote{ color: rgba(20,20,20,.88); }
+
+/* Shadow team: Fab / NicK */
+.team-shadow{
+  background-image: url("shadow_background.png");
+  border: 1px solid rgba(255,255,255,.18);
+}
+.team-shadow::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: rgba(10,10,12,.62);
+  pointer-events:none;
+}
+.team-shadow > *{ position: relative; z-index: 1; }
+
+.team-shadow .team-name{ color:#fff; font-weight: 950; font-size: 1.05rem; }
+.team-shadow .team-role{ color: rgba(255,79,138,.92); font-weight: 850; font-size: .95rem; }
+.team-shadow .team-body p{ color: rgba(255,255,255,.75); }
+.team-shadow .team-quote{ color: rgba(255,255,255,.92); }
+
 @media (min-width: 981px){
   .team-summary{ cursor: default; }
 }
@@ -594,8 +484,6 @@ body{
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   margin-top: 18px;
-  position: relative;
-  z-index: 1;
 }
 
 .game{
@@ -678,7 +566,7 @@ body{
 }
 .game-shadow{ border-color: rgba(255,79,138,.22); }
 
-/* ✅ Callout — sits on full black, not on the transition */
+/* Callout */
 .callout{
   margin-top: 18px;
   display:flex;
@@ -689,22 +577,17 @@ body{
   border-radius: var(--radius);
   border: 1px solid rgba(255,255,255,.16);
   background: var(--shadow);
-  backdrop-filter: none;
   box-shadow: var(--shadow-deep);
-  position: relative;
-  z-index: 2;
 }
 .callout p{ margin: 0; color: rgba(255,255,255,.82); font-weight: 750; }
 
 /* Quotes */
 .quote{
-  background: linear-gradient(180deg, rgba(255,255,255,.82), rgba(255,255,255,.62));
+  background: #fff;
   border: 1px solid rgba(20,20,20,.12);
   border-radius: var(--radius);
   padding: 18px;
   box-shadow: var(--shadow-soft);
-  position: relative;
-  z-index: 1;
 }
 .quote blockquote{
   margin: 0 0 10px;
@@ -729,8 +612,6 @@ body{
   gap: 16px;
   margin-top: 18px;
   width: min(600px, 92vw);
-  position: relative;
-  z-index: 1;
 }
 
 #contact .container{
@@ -750,15 +631,14 @@ body{
   position: relative;
   overflow: hidden;
 }
-.contact-card > *{ position: relative; z-index: 1; }
 
 .link{
   color: #fff;
   text-decoration: none;
   border-bottom: 2px solid rgba(255,79,138,.75);
-  transition: opacity .12s ease;
 }
-.link:hover{ opacity: .9; }
+
+.muted-on-dark{ color: rgba(255,255,255,.70); }
 
 .sep{
   border: none;
@@ -766,7 +646,7 @@ body{
   margin: 16px 0;
 }
 
-/* Screen-reader-only label helper */
+/* SR helper */
 .sr-only{
   position:absolute;
   width:1px; height:1px;
@@ -801,9 +681,7 @@ body{
   flex-wrap: wrap;
 }
 
-.brevo input[type="email"],
-.brevo input[type="text"],
-.brevo input[type="tel"]{
+.brevo input[type="email"]{
   flex: 1 1 260px;
   min-width: 220px;
   padding: 12px 14px;
@@ -836,8 +714,6 @@ body{
   color: rgba(255,255,255,.70);
   font-size: .92rem;
   font-weight: 750;
-  position: relative;
-  z-index: 1;
 }
 
 /* Responsive */
@@ -854,26 +730,4 @@ body{
 
   .nav{ display:none; }
   .menu-btn{ display:inline-flex; align-items:center; justify-content:center; }
-}
-
-@media (hover: none){
-  .button:hover,
-  .cta:hover,
-  .nav a:hover,
-  .mobile-nav a:hover,
-  .team-card:hover{
-    transform: none;
-    text-decoration: none;
-    opacity: 1;
-  }
-}
-
-@media (prefers-reduced-motion: reduce){
-  html{ scroll-behavior: auto; }
-  .button, .cta, .nav a, .link,
-  .quote, .game, .contact-card,
-  .menu-btn, .mobile-nav a,
-  .team-card{
-    transition: none;
-  }
 }
