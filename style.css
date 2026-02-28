@@ -366,51 +366,44 @@ body{
   font-weight: 650;
 }
 
-/* ✅ SHADOW SECTION — solid black + smooth fades (no blunt cut) */
+/* ✅ SHADOW SECTION — fades BLACK to transparent (blends into whatever is behind) */
 .section-shadow{
-  background: var(--shadow);
-  color: #fff;
   position: relative;
-  isolation: isolate; /* clean stacking context */
+  overflow: hidden;
+  color: #fff;
+  isolation: isolate;
+  background: transparent; /* important: we're not locking the fade to --paper */
 }
+
 .section-shadow .section-head p{ color: rgba(255,255,255,.75); }
 .muted-on-dark{ color: rgba(255,255,255,.70); }
 
-/* Fade overlays (paper -> transparent revealing black) */
-.section-shadow::before,
-.section-shadow::after{
+/* One single layer: transparent -> solid black -> transparent */
+.section-shadow::before{
   content:"";
   position:absolute;
-  left:0; right:0;
-  height: var(--fade);
+  inset:0;
   pointer-events:none;
   z-index: 0;
-}
-.section-shadow::before{
-  top: 0;
   background: linear-gradient(
-    to bottom,
-    var(--paper) 0%,
-    rgba(246,239,238,0.85) 25%,
-    rgba(246,239,238,0) 100%
-  );
-}
-.section-shadow::after{
-  bottom: 0;
-  background: linear-gradient(
-    to top,
-    var(--paper) 0%,
-    rgba(246,239,238,0.85) 25%,
-    rgba(246,239,238,0) 100%
+    180deg,
+    rgba(10,10,12,0) 0%,
+    rgba(10,10,12,1) var(--fade),
+    rgba(10,10,12,1) calc(100% - var(--fade)),
+    rgba(10,10,12,0) 100%
   );
 }
 
-/* Ensure content stays above fades */
-.section-shadow > .container{ position: relative; z-index: 1; }
+/* Ensure content is above the fade layer */
+.section-shadow > .container{
+  position: relative;
+  z-index: 1;
+}
 
 /* ✅ Keep callout away from fade zone specifically in Games section */
 #games.section-shadow{
-  padding-bottom: calc(60px + var(--fade));
+  padding-top: calc(60px + var(--fade) * 0.35);
+  padding-bottom: calc(60px + var(--fade) * 0.85);
 }
 
 /* Sugar section (soft, clean) */
@@ -696,6 +689,7 @@ body{
   border-radius: var(--radius);
   border: 1px solid rgba(255,255,255,.16);
   background: var(--shadow);
+  backdrop-filter: none;
   box-shadow: var(--shadow-deep);
   position: relative;
   z-index: 2;
