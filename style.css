@@ -672,9 +672,11 @@ body{
   grid-template-columns: 1fr;
   gap: 16px;
   margin-top: 18px;
+
+  /* ✅ Correct width rule (removed conflicting duplicate) */
   width: min(600px, 92vw);
-  width: 100%;
 }
+
 #contact .container{
   display:flex;
   flex-direction: column;
