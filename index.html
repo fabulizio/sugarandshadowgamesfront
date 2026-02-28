@@ -21,42 +21,51 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- Top anchor target -->
   <div id="top" tabindex="-1"></div>
 
   <header class="site-header">
     <div class="container header-inner">
 
-     <nav class="nav" aria-label="Primary">
-  <a href="#about">About</a>
-  <a href="#games">Games</a>
-  <a href="#community">Community</a>
-  <a href="#contact">Contact</a>
+      <!-- left column (empty on desktop; used on mobile for burger alignment) -->
+      <div class="header-left">
+        <button class="menu-btn" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
+          <span class="menu-bars" aria-hidden="true"></span>
+        </button>
+      </div>
 
-  <!-- Instagram icon right next to Contact -->
-  <a
-    class="nav-insta"
-    href="https://www.instagram.com/sugar_and_shadow_games/"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Follow on Instagram"
-    title="Instagram"
-  >
-    <!-- Instagram SVG icon -->
-    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-      <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9Zm10.25 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/>
-    </svg>
-  </a>
-</nav>
+      <!-- center nav -->
+      <nav class="nav" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#games">Games</a>
+        <a href="#community">Community</a>
+        <a href="#contact">Contact</a>
+
+        <a
+          class="nav-insta"
+          href="https://www.instagram.com/sugar_and_shadow_games/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Follow on Instagram"
+          title="Instagram"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9Zm10.25 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/>
+          </svg>
+        </a>
+      </nav>
+
+      <!-- right column (kept for grid symmetry) -->
+      <div class="header-actions"></div>
     </div>
 
+    <!-- Mobile nav -->
     <div id="mobileNav" class="mobile-nav" hidden>
       <div class="container mobile-nav-inner">
         <a href="#about">About</a>
         <a href="#games">Games</a>
         <a href="#community">Community</a>
         <a href="#contact">Contact</a>
-        href="https://www.instagram.com/sugar_and_shadow_games/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.instagram.com/sugar_and_shadow_games/" target="_blank" rel="noopener noreferrer">Instagram</a>
       </div>
     </div>
   </header>
@@ -165,7 +174,7 @@
       </div>
     </section>
 
-    <!-- ABOUT (moved under Games) -->
+    <!-- ABOUT -->
     <section id="about" class="section section-about">
       <div class="container">
         <div class="section-head about-head">
@@ -184,7 +193,6 @@
             <p class="about-tagline"><strong>Sweet on the surface. Shadow underneath.</strong></p>
           </div>
 
-          <!-- TEAM (mobile expandable) -->
           <div class="team">
             <h3 class="team-title">The Team</h3>
 
@@ -403,17 +411,15 @@
       });
     })();
 
-    // ✅ Team: expandable on mobile (collapsed by default), always open on desktop
+    // Team: expandable on mobile (collapsed by default), always open on desktop
     (function () {
       const cards = Array.from(document.querySelectorAll('.team-card'));
       const mq = window.matchMedia('(max-width: 980px)');
 
       function applyTeamMode() {
         if (mq.matches) {
-          // mobile: collapse all (user expands)
           cards.forEach((d) => d.open = false);
         } else {
-          // desktop: open all
           cards.forEach((d) => d.open = true);
         }
       }
