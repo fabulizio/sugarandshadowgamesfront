@@ -24,7 +24,7 @@
   --shadow-deep: 0 22px 60px rgba(0,0,0,.35);
 
   /* ✅ smoother, cleaner transitions */
-  --fade: 140px; /* height of the top/bottom fade in shadow sections */
+  --fade: 180px; /* height of the top/bottom fade in shadow sections */
 }
 
 /* Reset */
@@ -372,7 +372,7 @@ body{
   overflow: hidden;
   color: #fff;
   isolation: isolate;
-  background: transparent; /* important: we're not locking the fade to --paper */
+  background: transparent; /* important: no fixed paper color */
 }
 
 .section-shadow .section-head p{ color: rgba(255,255,255,.75); }
@@ -394,7 +394,7 @@ body{
   );
 }
 
-/* Ensure content is above the fade layer */
+/* Ensure content stays above the fade layer */
 .section-shadow > .container{
   position: relative;
   z-index: 1;
@@ -402,8 +402,8 @@ body{
 
 /* ✅ Keep callout away from fade zone specifically in Games section */
 #games.section-shadow{
-  padding-top: calc(60px + var(--fade) * 0.35);
-  padding-bottom: calc(60px + var(--fade) * 0.85);
+  padding-top: calc(60px + var(--fade) * 0.8);
+  padding-bottom: calc(60px + var(--fade) * 1.8);
 }
 
 /* Sugar section (soft, clean) */
