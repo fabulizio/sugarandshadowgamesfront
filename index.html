@@ -35,6 +35,17 @@
       </nav>
 
       <div class="header-actions">
+        <!-- ✅ Instagram follow button -->
+        <a
+          class="cta cta-insta"
+          href="https://instagram.com/PASTE_YOUR_HANDLE"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Follow Sugar & Shadow Games on Instagram"
+        >
+          Instagram
+        </a>
+
         <button
           class="menu-btn"
           type="button"
@@ -53,6 +64,7 @@
         <a href="#games">Games</a>
         <a href="#community">Community</a>
         <a href="#contact">Contact</a>
+        <a href="https://instagram.com/PASTE_YOUR_HANDLE" target="_blank" rel="noopener noreferrer">Instagram</a>
       </div>
     </div>
   </header>
@@ -99,16 +111,13 @@
         </div>
 
         <div class="games-grid">
-          <!-- ✅ background image: reverso_cards.jpg -->
           <article class="game game-reverso">
             <div class="game-top">
               <span class="pill sugar">Sugar</span>
               <span class="meta">Cards • 1v1 • 5 min</span>
             </div>
             <h3>REVERSO!</h3>
-            <p>
-              A fast reflex card game. Flip a card, shout the REVERSO in 3 seconds… or you lose.
-            </p>
+            <p>A fast reflex card game. Flip a card, shout the REVERSO in 3 seconds… or you lose.</p>
             <ul class="bullets">
               <li>Family chaos, instantly teachable</li>
               <li>Illustrations (language-light)</li>
@@ -120,16 +129,13 @@
             </div>
           </article>
 
-          <!-- ✅ background image: coletazo_cards.jpg -->
           <article class="game game-coletazo">
             <div class="game-top">
               <span class="pill sugar">Sugar</span>
               <span class="meta">1 vs Many • 20 min</span>
             </div>
             <h3>Coletazo</h3>
-            <p>
-              A cute-but-clever 1 vs many family strategy game. Light on rules, rich in decisions.
-            </p>
+            <p>A cute-but-clever 1 vs many family strategy game. Light on rules, rich in decisions.</p>
             <ul class="bullets">
               <li>Tactical, replayable, friendly</li>
               <li>Strong table presence</li>
@@ -147,9 +153,7 @@
               <span class="meta">Adults • up to 5 hours</span>
             </div>
             <h3>Hauntings</h3>
-            <p>
-              An ambitious esoteric experience. Ritual tension, long arcs, and consequences that linger.
-            </p>
+            <p>An ambitious esoteric experience. Ritual tension, long arcs, and consequences that linger.</p>
             <ul class="bullets">
               <li>Atmospheric, narrative-forward design</li>
               <li>High commitment, high reward</li>
@@ -188,86 +192,91 @@
             <p class="about-tagline"><strong>Sweet on the surface. Shadow underneath.</strong></p>
           </div>
 
-          <!-- TEAM (full bios + Sugar/Shadow styling) -->
+          <!-- TEAM (mobile expandable) -->
           <div class="team">
             <h3 class="team-title">The Team</h3>
 
             <div class="team-grid">
               <!-- Shadow -->
-              <article class="team-card team-shadow">
-                <div class="team-topline">
-                  <h4>Fab</h4>
-                  <span class="team-badge">Shadow</span>
+              <details class="team-card team-shadow" open>
+                <summary class="team-summary">
+                  <span class="team-name">Fab</span>
+                  <span class="team-role">The Shadow Behind</span>
+                </summary>
+                <div class="team-body">
+                  <p>
+                    The true hidden engine. You never see him on the cover, but he’s the one making everything work.
+                    Silent strategist, problem fixer, keeper of the project’s secrets. When something seems impossible,
+                    Fab is already three steps ahead with the solution in his pocket.
+                  </p>
+                  <p class="team-quote">“I don’t need credit, I need it to work.”</p>
                 </div>
-                <p class="role">The Shadow Behind</p>
-                <p class="bio">
-                  The true hidden engine. You never see him on the cover, but he’s the one making everything work.
-                  Silent strategist, problem fixer, keeper of the project’s secrets. When something seems impossible,
-                  Fab is already three steps ahead with the solution in his pocket.
-                </p>
-                <p class="quote">“I don’t need credit, I need it to work.”</p>
-              </article>
+              </details>
 
               <!-- Sugar -->
-              <article class="team-card team-sugar">
-                <div class="team-topline">
-                  <h4>Gaius</h4>
-                  <span class="team-badge">Sugar</span>
+              <details class="team-card team-sugar" open>
+                <summary class="team-summary">
+                  <span class="team-name">Gaius</span>
+                  <span class="team-role">The Visual Sorcerer</span>
+                </summary>
+                <div class="team-body">
+                  <p>
+                    The aesthetic eye of the group. Turns confused ideas into visuals that make people say “wow” at first glance.
+                    Pixel-perfect, killer palettes, layouts that hypnotize and never let go. He hates Comic Sans more than he hates
+                    tight deadlines (and he hates those a lot).
+                  </p>
+                  <p class="team-quote">“If it’s not beautiful, it’s not finished.”</p>
                 </div>
-                <p class="role">The Visual Sorcerer</p>
-                <p class="bio">
-                  The aesthetic eye of the group. Turns confused ideas into visuals that make people say “wow” at first glance.
-                  Pixel-perfect, killer palettes, layouts that hypnotize and never let go. He hates Comic Sans more than he hates
-                  tight deadlines (and he hates those a lot).
-                </p>
-                <p class="quote">“If it’s not beautiful, it’s not finished.”</p>
-              </article>
+              </details>
 
               <!-- Sugar -->
-              <article class="team-card team-sugar">
-                <div class="team-topline">
-                  <h4>March</h4>
-                  <span class="team-badge">Sugar</span>
+              <details class="team-card team-sugar" open>
+                <summary class="team-summary">
+                  <span class="team-name">March</span>
+                  <span class="team-role">The Hype Queen</span>
+                </summary>
+                <div class="team-body">
+                  <p>
+                    The undisputed queen of controlled hype. She can sell ice to Eskimos and dreams to cynics.
+                    Copy that cuts deep, lethal viral strategies, perfect timing for every reveal. Turns a tiny project into
+                    “the thing everyone’s talking about online.”
+                  </p>
+                  <p class="team-quote">“It’s not marketing, it’s storytelling. And we tell it damn well.”</p>
                 </div>
-                <p class="role">The Hype Queen</p>
-                <p class="bio">
-                  The undisputed queen of controlled hype. She can sell ice to Eskimos and dreams to cynics.
-                  Copy that cuts deep, lethal viral strategies, perfect timing for every reveal. Turns a tiny project into
-                  “the thing everyone’s talking about online.”
-                </p>
-                <p class="quote">“It’s not marketing, it’s storytelling. And we tell it damn well.”</p>
-              </article>
+              </details>
 
               <!-- Shadow -->
-              <article class="team-card team-shadow">
-                <div class="team-topline">
-                  <h4>NicK</h4>
-                  <span class="team-badge">Shadow</span>
+              <details class="team-card team-shadow" open>
+                <summary class="team-summary">
+                  <span class="team-name">NicK</span>
+                  <span class="team-role">The Mechanic Destroyer</span>
+                </summary>
+                <div class="team-body">
+                  <p>
+                    The official destroyer of mechanics (in the best possible way). Plays, replays, breaks everything, finds hidden exploits,
+                    complains loudly, suggests brilliant fixes, and saves the game multiple times a day. Zero mercy for weak rules, infallible
+                    radar for “this isn’t fun.”
+                  </p>
+                  <p class="team-quote">“If it survives me, it survives anyone.”</p>
                 </div>
-                <p class="role">The Mechanic Destroyer</p>
-                <p class="bio">
-                  The official destroyer of mechanics (in the best possible way). Plays, replays, breaks everything, finds hidden exploits,
-                  complains loudly, suggests brilliant fixes, and saves the game multiple times a day. Zero mercy for weak rules, infallible
-                  radar for “this isn’t fun.”
-                </p>
-                <p class="quote">“If it survives me, it survives anyone.”</p>
-              </article>
+              </details>
 
               <!-- Sugar -->
-              <article class="team-card team-sugar">
-                <div class="team-topline">
-                  <h4>Bea</h4>
-                  <span class="team-badge">Sugar</span>
+              <details class="team-card team-sugar" open>
+                <summary class="team-summary">
+                  <span class="team-name">Bea</span>
+                  <span class="team-role">The Chosen One</span>
+                </summary>
+                <div class="team-body">
+                  <p>
+                    The chosen one (or self-proclaimed, depending on who you ask). Learns from everyone at lightning speed,
+                    absorbs knowledge like a sponge under pressure, brings fresh energy and uncomfortable questions no one else dared to ask.
+                    She’s the voice of “why not?”, the protector of crazy ideas, the one who sometimes sees beyond the wall the “old ones”
+                    in the team can no longer see.
+                  </p>
+                  <p class="team-quote">“I’m not here to follow… I’m here to surpass.”</p>
                 </div>
-                <p class="role">The Chosen One</p>
-                <p class="bio">
-                  The chosen one (or self-proclaimed, depending on who you ask). Learns from everyone at lightning speed,
-                  absorbs knowledge like a sponge under pressure, brings fresh energy and uncomfortable questions no one else dared to ask.
-                  She’s the voice of “why not?”, the protector of crazy ideas, the one who sometimes sees beyond the wall the “old ones”
-                  in the team can no longer see.
-                </p>
-                <p class="quote">“I’m not here to follow… I’m here to surpass.”</p>
-              </article>
+              </details>
             </div>
           </div>
           <!-- /TEAM -->
@@ -324,14 +333,12 @@
 
             <hr class="sep" />
 
-            <!-- Newsletter (native HTML embed) -->
             <div class="newsletter">
               <div class="newsletter-head">
                 <h3>Join the Circle</h3>
                 <p class="muted-on-dark">Playtests, previews, and release news. No spam.</p>
               </div>
 
-              <!-- ==== REPLACE THIS FORM WITH THE HTML EMBED BREVO PROVIDES ==== -->
               <div class="brevo-form">
                 <form class="brevo" action="PASTE_BREVO_ACTION_URL" method="post" novalidate>
                   <label class="sr-only" for="EMAIL">Email address</label>
@@ -344,7 +351,6 @@
                   <p class="brevo-help">We’ll only email you for studio updates. Unsubscribe any time.</p>
                 </form>
               </div>
-              <!-- ==== end Brevo form placeholder ==== -->
             </div>
           </div>
         </div>
@@ -382,13 +388,11 @@
       setMenu(!isOpen);
     });
 
-    // Close menu after clicking a link
     mobileNav?.addEventListener('click', (e) => {
       const target = e.target;
       if (target && target.tagName === 'A') setMenu(false);
     });
 
-    // Close on Escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && btn?.getAttribute('aria-expanded') === 'true') {
         setMenu(false);
@@ -405,6 +409,25 @@
         img.dataset.fallbackTried = '1';
         img.src = 'logo.jpg';
       });
+    })();
+
+    // ✅ Team: expandable on mobile (collapsed by default), always open on desktop
+    (function () {
+      const cards = Array.from(document.querySelectorAll('.team-card'));
+      const mq = window.matchMedia('(max-width: 980px)');
+
+      function applyTeamMode() {
+        if (mq.matches) {
+          // mobile: collapse all (user expands)
+          cards.forEach((d) => d.open = false);
+        } else {
+          // desktop: open all
+          cards.forEach((d) => d.open = true);
+        }
+      }
+
+      applyTeamMode();
+      mq.addEventListener?.('change', applyTeamMode);
     })();
   </script>
 </body>
