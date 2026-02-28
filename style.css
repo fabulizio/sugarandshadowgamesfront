@@ -268,26 +268,31 @@ body{
   font-weight: 900;
 }
 
+/* ===== HERO TEXT – NO WHITE BOX + LARGER ===== */
+
 .hero-manifesto{
-  max-width: 68ch;
-  padding: 16px 16px;
-  border-radius: var(--radius);
-  border: 1px solid rgba(20,20,20,.10);
-  background: rgba(255,255,255,.75);
-  box-shadow: 0 16px 40px rgba(0,0,0,.08);
-}
-.hero-line{
-  margin: 0 0 12px;
-  color: rgba(20,20,20,.82);
-  font-weight: 650;
-  line-height: 1.7;
-}
-.hero-line:last-child{ margin-bottom: 0; }
-.hero-line strong{
-  color: rgba(20,20,20,.95);
-  font-weight: 950;
+  max-width: 720px;
+  padding: 0;                 /* remove inner padding */
+  border: none;               /* remove border */
+  background: transparent;    /* remove white box */
+  box-shadow: none;           /* remove shadow */
+  border-radius: 0;
 }
 
+/* Bigger text */
+.hero-line{
+  margin: 0 0 18px;
+  font-size: 1.15rem;         /* 🔥 bigger */
+  line-height: 1.8;
+  color: rgba(20,20,20,.85);
+  font-weight: 600;
+}
+
+.hero-line strong{
+  font-weight: 900;
+  font-size: 1.2rem;          /* slightly larger bold titles */
+  color: rgba(20,20,20,.95);
+}
 /* Sections (hard cuts) */
 .section{
   padding: 60px 0;
