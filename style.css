@@ -1,4 +1,5 @@
-/* style.css (UPDATED) */
+/* style.css (FULL UPDATED — CLEANED + CONTACT BACKGROUNDS MIXED) */
+
 :root{
   --paper: #f6efee;
   --paper-2: #f0e6e5;
@@ -268,38 +269,34 @@ body{
   font-weight: 900;
 }
 
-/* ===== HERO TEXT – NO WHITE BOX + LARGER ===== */
-
+/* HERO TEXT — NO WHITE BOX + LARGER */
 .hero-manifesto{
   max-width: 720px;
-  padding: 0;                 /* remove inner padding */
-  border: none;               /* remove border */
-  background: transparent;    /* remove white box */
-  box-shadow: none;           /* remove shadow */
+  padding: 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
   border-radius: 0;
 }
-
-/* Bigger text */
 .hero-line{
   margin: 0 0 18px;
-  font-size: 1.15rem;         /* 🔥 bigger */
+  font-size: 1.15rem;
   line-height: 1.8;
   color: rgba(20,20,20,.85);
   font-weight: 600;
 }
-
 .hero-line strong{
   font-weight: 900;
-  font-size: 1.2rem;          /* slightly larger bold titles */
+  font-size: 1.2rem;
   color: rgba(20,20,20,.95);
 }
+
 /* Sections (hard cuts) */
 .section{
   padding: 60px 0;
   position: relative;
   overflow: hidden;
 }
-
 .section-head{ margin-bottom: 26px; }
 .section-head h2{
   font-size: 2rem;
@@ -324,11 +321,17 @@ body{
 .section-sugar{ background: var(--paper-2); }
 .section-about{ background: var(--paper); }
 
-/* ✅ ABOUT copy (no box) */
-.about-head{ text-align: center; }
+/* ABOUT — truly centered */
+.about-head{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* fixes the “slightly left” feel */
+}
 .about-copy{
   width: min(840px, 92vw);
   margin: 0 auto;
+  text-align: center;
 }
 .about-copy p{
   margin: 0 0 12px;
@@ -342,6 +345,7 @@ body{
   font-weight: 950;
   letter-spacing: -0.01em;
   color: rgba(20,20,20,.88);
+  text-align: center;
 }
 
 /* TEAM */
@@ -356,6 +360,7 @@ body{
   font-weight: 950;
   letter-spacing: -0.01em;
   color: rgba(20,20,20,.90);
+  text-align: center;
 }
 
 .team-grid{
@@ -397,17 +402,17 @@ body{
   opacity: .95;
 }
 
-/* ✅ Background PNGs (forced relative paths) */
+/* Team backgrounds (no shorthand “background:” so images never get nuked) */
 .team-sugar,
 .team-shadow{
-  background-size: cover;
-  background-position: center;
   background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 /* Sugar: Gaius / March / Bea */
 .team-sugar{
-  background-image: url("./sugar_background.png");
+  background-image: url("sugar_background.png");
   border: 1px solid rgba(255,79,138,.30);
 }
 .team-sugar::before{
@@ -426,14 +431,14 @@ body{
 
 /* Shadow: Fab / NicK */
 .team-shadow{
-  background-image: url("./shadow_background.png");
+  background-image: url("shadow_background.png");
   border: 1px solid rgba(255,255,255,.18);
 }
 .team-shadow::before{
   content:"";
   position:absolute;
   inset:0;
-  background: rgba(10,10,12,.28); /* lighter overlay so PNG is visible */
+  background: rgba(10,10,12,.18);
   pointer-events:none;
 }
 .team-shadow > *{ position: relative; z-index: 1; }
@@ -465,7 +470,7 @@ body{
 .game{
   position: relative;
   overflow: hidden;
-  background:
+  background-image:
     radial-gradient(240px 160px at 18% 20%, rgba(255,79,138,.10) 0%, rgba(255,79,138,0) 72%),
     linear-gradient(180deg, rgba(17,17,21,1) 0%, rgba(10,10,12,1) 100%);
   border: 1px solid rgba(255,255,255,.14);
@@ -479,7 +484,7 @@ body{
   position:absolute;
   inset:0;
   z-index:1;
-  background: linear-gradient(to bottom, rgba(0,0,0,.18), rgba(0,0,0,.74));
+  background-image: linear-gradient(to bottom, rgba(0,0,0,.18), rgba(0,0,0,.74));
 }
 
 .game-reverso::before,
@@ -574,7 +579,7 @@ body{
 .quote figcaption{ color: rgba(20,20,20,.55); font-size: .92rem; font-weight: 750; }
 
 .quote-shadow{
-  background: linear-gradient(180deg, rgba(17,17,21,1), rgba(10,10,12,1));
+  background-image: linear-gradient(180deg, rgba(17,17,21,1), rgba(10,10,12,1));
   border-color: rgba(255,255,255,.14);
   box-shadow: var(--shadow-deep);
 }
@@ -596,17 +601,36 @@ body{
   align-items: center;
 }
 
+/* ✅ CONTACT CARD: MIX sugar_background + shadow_background */
 .contact-card{
-  background:
-    radial-gradient(260px 180px at 18% 20%, rgba(255,79,138,.14) 0%, rgba(255,79,138,0) 70%),
-    linear-gradient(180deg, rgba(17,17,21,.98), rgba(10,10,12,.98));
-  border: 1px solid rgba(255,255,255,.12);
+  position: relative;
+  overflow: hidden;
   border-radius: var(--radius);
   padding: 22px;
   box-shadow: var(--shadow-deep);
-  position: relative;
-  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.12);
+
+  /* layers: shadow png + sugar png + subtle gradients */
+  background-image:
+    url("shadow_background.png"),
+    url("sugar_background.png"),
+    radial-gradient(420px 240px at 22% 18%, rgba(255,79,138,.22) 0%, rgba(255,79,138,0) 70%),
+    linear-gradient(180deg, rgba(17,17,21,.98), rgba(10,10,12,.98));
+  background-size: cover, cover, auto, auto;
+  background-position: center, center, center, center;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  background-blend-mode: normal, screen, normal, normal;
 }
+
+/* optional readability veil (keeps textures visible) */
+.contact-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: rgba(10,10,12,.25);
+  pointer-events:none;
+}
+.contact-card > *{ position: relative; z-index: 1; }
 
 .link{
   color: #fff;
@@ -629,13 +653,32 @@ body{
   white-space:nowrap; border:0;
 }
 
+/* ✅ NEWSLETTER BOX (Join the Circle): ALSO MIX BOTH BACKGROUNDS */
 .newsletter{
+  position: relative;
+  overflow: hidden;
   margin-top: 14px;
   padding: 18px;
   border-radius: calc(var(--radius) - 2px);
   border: 1px solid rgba(255,255,255,.14);
-  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+
+  background-image:
+    url("sugar_background.png"),
+    url("shadow_background.png"),
+    linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
+  background-size: cover, cover, auto;
+  background-position: center, center, center;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-blend-mode: soft-light, multiply, normal;
 }
+.newsletter::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: rgba(10,10,12,.18);
+  pointer-events:none;
+}
+.newsletter > *{ position: relative; z-index: 1; }
 
 .newsletter-head h3{
   margin: 0 0 6px;
@@ -677,19 +720,6 @@ body{
   font-size: .92rem;
   color: rgba(255,255,255,.65);
   font-weight: 650;
-}
-
-/* Center About copy */
-.about-copy{
-  width: min(840px, 92vw);
-  margin: 0 auto;
-  text-align: center;     /* ✅ centers the text */
-}
-.about-copy p{
-  margin: 0 0 12px;
-}
-.about-tagline{
-  text-align: center;     /* (optional, but consistent) */
 }
 
 /* Footer */
