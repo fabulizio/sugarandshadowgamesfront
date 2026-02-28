@@ -1,4 +1,4 @@
-<!-- index.html -->
+<!-- index.html (UPDATED) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,14 +26,12 @@
   <header class="site-header">
     <div class="container header-inner">
 
-      <!-- left column (empty on desktop; used on mobile for burger alignment) -->
       <div class="header-left">
         <button class="menu-btn" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
           <span class="menu-bars" aria-hidden="true"></span>
         </button>
       </div>
 
-      <!-- center nav -->
       <nav class="nav" aria-label="Primary">
         <a href="#about">About</a>
         <a href="#games">Games</a>
@@ -54,11 +52,9 @@
         </a>
       </nav>
 
-      <!-- right column (kept for grid symmetry) -->
       <div class="header-actions"></div>
     </div>
 
-    <!-- Mobile nav -->
     <div id="mobileNav" class="mobile-nav" hidden>
       <div class="container mobile-nav-inner">
         <a href="#about">About</a>
@@ -180,7 +176,8 @@
         <div class="section-head about-head">
           <h2>About Us</h2>
 
-          <div class="about-narrative">
+          <!-- ✅ NO WHITE BOX WRAPPER ANYMORE -->
+          <div class="about-copy">
             <p>
               Sugar &amp; Shadow Games develops two distinct product lines under a single creative direction.
               Our <strong>Family Games</strong> prioritize clarity, immediacy, and table energy — accessible designs that travel fast through word-of-mouth and invite repeat play.
@@ -399,7 +396,7 @@
       }
     });
 
-    // LOGO fallback (logo.jpg)
+    // LOGO fallback
     (function () {
       const img = document.getElementById('heroLogo');
       if (!img) return;
