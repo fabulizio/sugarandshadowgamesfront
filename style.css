@@ -674,6 +674,19 @@ body{
   font-weight: 650;
 }
 
+/* Center About copy */
+.about-copy{
+  width: min(840px, 92vw);
+  margin: 0 auto;
+  text-align: center;     /* ✅ centers the text */
+}
+.about-copy p{
+  margin: 0 0 12px;
+}
+.about-tagline{
+  text-align: center;     /* (optional, but consistent) */
+}
+
 /* Footer */
 .site-footer{
   margin-top: 26px;
