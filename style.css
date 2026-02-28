@@ -672,7 +672,7 @@ body{
   grid-template-columns: 1fr;
   gap: 16px;
   margin-top: 18px;
-  max-width: 1000px;
+  width: min(600px, 92vw);
   width: 100%;
 }
 #contact .container{
