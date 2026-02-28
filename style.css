@@ -712,3 +712,45 @@ body{
   .nav{ display:none; }
   .menu-btn{ display:inline-flex; align-items:center; justify-content:center; }
 }
+
+/* =========================
+   TEAM BACKGROUNDS (FORCE)
+   put this at the END of style.css
+   ========================= */
+
+.team-sugar,
+.team-shadow{
+  position: relative;
+  background-color: transparent; /* avoid any forced solid bg */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/* Sugar cards: Gaius, March, Bea */
+.team-sugar{
+  background-image: url("sugar_background.png") !important;
+  border: 1px solid rgba(255,79,138,.30);
+}
+.team-sugar::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: rgba(255,255,255,.45); /* overlay for readability */
+  pointer-events:none;
+}
+.team-sugar > *{ position: relative; z-index: 1; }
+
+/* Shadow cards: Fab, NicK */
+.team-shadow{
+  background-image: url("shadow_background.png") !important;
+  border: 1px solid rgba(255,255,255,.18);
+}
+.team-shadow::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: rgba(10,10,12,.18); /* ✅ much lighter so image shows */
+  pointer-events:none;
+}
+.team-shadow > *{ position: relative; z-index: 1; }
