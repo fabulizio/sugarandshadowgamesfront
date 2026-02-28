@@ -86,6 +86,7 @@ body{
   gap: 18px;
   flex-wrap: wrap;
   justify-content:center;
+  align-items:center;
 }
 .nav a{
   text-decoration:none;
@@ -97,6 +98,36 @@ body{
 }
 .nav a:hover{ opacity: 1; text-decoration: underline; text-underline-offset: 6px; }
 
+/* ✅ Instagram icon next to "Contact" (inside nav) */
+.nav-insta{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1px solid rgba(20,20,20,.14);
+  background: rgba(255,255,255,.55);
+  transition:
+    transform .14s cubic-bezier(.2,.9,.2,1.2),
+    border-color .12s ease,
+    opacity .12s ease;
+}
+.nav-insta svg{
+  width: 18px;
+  height: 18px;
+  fill: rgba(20,20,20,.92);
+}
+.nav-insta:hover{
+  transform: translateY(-1px);
+  border-color: rgba(255,79,138,.45);
+  text-decoration: none;
+}
+.nav-insta:active{
+  transform: translateY(1px) scale(0.98);
+  transition-duration: .06s;
+}
+
 .header-actions{
   grid-column: 3;
   justify-self: end;
@@ -105,6 +136,7 @@ body{
   gap: 10px;
 }
 
+/* (Optional legacy) CTA styles kept (safe even if unused) */
 .cta{
   text-decoration:none;
   font-weight: 900;
@@ -120,14 +152,11 @@ body{
     opacity .12s ease;
 }
 .cta:hover{ border-color: rgba(20,20,20,.35); transform: translateY(-1px); }
-
 .cta-insta{
   border-color: rgba(255,79,138,.32);
   background: linear-gradient(180deg, rgba(255,79,138,.18), rgba(255,255,255,.78));
 }
-.cta-insta:hover{
-  border-color: rgba(255,79,138,.55);
-}
+.cta-insta:hover{ border-color: rgba(255,79,138,.55); }
 
 /* Hamburger */
 .menu-btn{
@@ -554,7 +583,7 @@ body{
 .team-shadow .team-body p{ color: rgba(255,255,255,.72); }
 .team-shadow .team-quote{ color: rgba(255,255,255,.90); }
 
-/* Desktop: keep summary pointer but content is open anyway (JS sets open=true) */
+/* Desktop: content can be always visible if you set open via JS; keep cursor neutral */
 @media (min-width: 981px){
   .team-summary{ cursor: default; }
 }
