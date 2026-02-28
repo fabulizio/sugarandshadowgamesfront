@@ -1,4 +1,4 @@
-/* style.css (FULL UPDATED — CLEANED + CONTACT BACKGROUNDS MIXED) */
+/* style.css (FULL UPDATED — FIXED ABOUT CENTERING) */
 
 :root{
   --paper: #f6efee;
@@ -321,18 +321,31 @@ body{
 .section-sugar{ background: var(--paper-2); }
 .section-about{ background: var(--paper); }
 
-/* ABOUT — truly centered */
-.about-head{
-  text-align: center;
+/* =========================
+   ABOUT — FIXED TRUE CENTER
+   ========================= */
+
+/* Make ABOUT container itself center children perfectly */
+.section-about .container{
   display: flex;
   flex-direction: column;
-  align-items: center; /* fixes the “slightly left” feel */
+  align-items: center;
 }
+
+/* Ensure the heading block spans full width but text stays centered */
+.about-head{
+  width: 100%;
+  text-align: center;
+}
+
+/* IMPORTANT: remove 92vw width (causes “left feel” on wide screens) */
 .about-copy{
-  width: min(840px, 92vw);
+  max-width: 820px;
+  width: 100%;
   margin: 0 auto;
   text-align: center;
 }
+
 .about-copy p{
   margin: 0 0 12px;
   color: rgba(20,20,20,.78);
@@ -340,6 +353,7 @@ body{
   line-height: 1.75;
 }
 .about-copy p:last-child{ margin-bottom: 0; }
+
 .about-tagline{
   margin-top: 14px;
   font-weight: 950;
@@ -402,7 +416,7 @@ body{
   opacity: .95;
 }
 
-/* Team backgrounds (no shorthand “background:” so images never get nuked) */
+/* Team backgrounds */
 .team-sugar,
 .team-shadow{
   background-repeat: no-repeat;
@@ -596,7 +610,7 @@ body{
   align-items: center;
 }
 
-/* ✅ CONTACT CARD: MIX sugar_background + shadow_background */
+/* CONTACT CARD: MIX sugar_background + shadow_background */
 .contact-card{
   position: relative;
   overflow: hidden;
@@ -605,7 +619,6 @@ body{
   box-shadow: var(--shadow-deep);
   border: 1px solid rgba(255,255,255,.12);
 
-  /* layers: shadow png + sugar png + subtle gradients */
   background-image:
     url("shadow_background.png"),
     url("sugar_background.png"),
@@ -617,7 +630,6 @@ body{
   background-blend-mode: normal, screen, normal, normal;
 }
 
-/* optional readability veil (keeps textures visible) */
 .contact-card::before{
   content:"";
   position:absolute;
@@ -648,7 +660,7 @@ body{
   white-space:nowrap; border:0;
 }
 
-/* ✅ NEWSLETTER BOX (Join the Circle): ALSO MIX BOTH BACKGROUNDS */
+/* NEWSLETTER BOX: ALSO MIX BOTH BACKGROUNDS */
 .newsletter{
   position: relative;
   overflow: hidden;
