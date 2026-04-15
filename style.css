@@ -1,4 +1,4 @@
-/* style.css (FULL UPDATED — FIXED ABOUT CENTERING + THAT'S -not- FUNNY! CARD) */
+/* style.css (FULL UPDATED — CENTERED GAMES IN 2 LINES + SUGAR FEEDBACK PLACEHOLDER) */
 
 :root{
   --paper: #f6efee;
@@ -469,20 +469,23 @@ body{
 /* Grids */
 .grid-2{
   display:grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
   gap: 16px;
+  align-items: stretch;
 }
 
-/* Games */
+/* Games — centered in 2 lines */
 .games-grid{
   display:grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, minmax(280px, 420px));
+  justify-content: center;
   gap: 16px;
   margin-top: 18px;
 }
 
 .game{
   position: relative;
+  width: 100%;
   overflow: hidden;
   background-image:
     radial-gradient(240px 160px at 18% 20%, rgba(255,79,138,.10) 0%, rgba(255,79,138,0) 72%),
@@ -596,6 +599,50 @@ body{
 }
 .quote-shadow blockquote{ color:#fff; }
 .quote-shadow figcaption{ color: rgba(255,255,255,.72); }
+
+/* Sugar feedback placeholder box */
+.quote-sugar{
+  border: 2px solid rgba(255,79,138,.22);
+  background-image:
+    url("sugar_background.png"),
+    linear-gradient(180deg, rgba(255,245,248,.96), rgba(255,236,243,.96));
+  background-size: cover, auto;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  box-shadow: 0 16px 36px rgba(255,79,138,.12);
+}
+
+.quote-sugar::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: rgba(255,255,255,.60);
+  pointer-events:none;
+  border-radius: inherit;
+}
+
+.quote-sugar{
+  position: relative;
+  overflow: hidden;
+}
+
+.quote-sugar > *{
+  position: relative;
+  z-index: 1;
+}
+
+.quote-sugar blockquote{
+  color: rgba(20,20,20,.86);
+}
+
+.quote-sugar figcaption{
+  color: rgba(194,24,91,.82);
+}
+
+.placeholder-feedback blockquote{
+  font-style: italic;
+  opacity: .86;
+}
 
 /* Contact */
 .contact-grid{
@@ -747,7 +794,11 @@ body{
   .hero-left{ display:flex; justify-content:center; }
   .hero-logo{ max-width: 520px; }
 
-  .games-grid{ grid-template-columns: 1fr; }
+  .games-grid{
+    grid-template-columns: 1fr;
+    justify-content: stretch;
+  }
+
   .grid-2{ grid-template-columns: 1fr; }
   .callout{ flex-direction: column; align-items: flex-start; }
 
