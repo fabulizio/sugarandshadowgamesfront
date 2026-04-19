@@ -98,117 +98,182 @@
       </div>
     </section>
 
-    <!-- GAMES -->
-    <section id="games" class="section section-shadow">
-      <div class="container">
-        <div class="section-head">
-          <h2>Games</h2>
-          <p>
-            Two worlds. One studio voice. Click a game to open its page.
-          </p>
-        </div>
+  <!-- GAMES -->
+<section id="games" class="games-catalog">
+  <div class="games-hero">
+    <div class="container games-hero-inner">
+      <h2>GAMES</h2>
+    </div>
+  </div>
 
-        <div class="games-grid">
-          <article
-            class="game game-thats-funny"
-            tabindex="0"
-            role="button"
-            aria-label="Open THAT'S NOT FUNNY!"
-            data-game-url="thatsnotfunny.html"
-          >
-            <div class="game-top">
-              <span class="pill sugar">Sugar</span>
-              <span class="meta">Cards • 3–5 players • 15 min</span>
-            </div>
-            <h3>THAT'S NOT FUNNY!</h3>
-            <p>
-              A mischievous game of awful presents, birthday sabotage, and beautifully polite cruelty.
-            </p>
-            <ul class="bullets">
-              <li>Quick to learn, with deeper strategy as the rounds unfold</li>
-              <li>Some birthdays make it through… most don’t</li>
-            </ul>
-            <p class="game-open-hint">Click to open</p>
-          </article>
+  <div class="games-catalog-body">
+    <div class="container">
+      <div class="games-toolbar">
+        <p class="games-count">4 products</p>
 
-          <article
-            class="game game-reverso"
-            tabindex="0"
-            role="button"
-            aria-label="Open REVERSO!"
-            data-game-url="reverso.html"
-          >
-            <div class="game-top">
-              <span class="pill sugar">Sugar</span>
-              <span class="meta">Cards • 2–6 players • 10 min</span>
-            </div>
-            <h3>REVERSO!</h3>
-            <p>
-              A fast reflex card game. Flip a card, shout the REVERSO in 3 seconds… or you lose.
-            </p>
-            <ul class="bullets">
-              <li>Family chaos, instantly teachable</li>
-              <li>Illustrated and language-light</li>
-              <li>Perfect for quick rounds and challenges</li>
-            </ul>
-            <p class="game-open-hint">Click to open</p>
-          </article>
-
-          <article
-            class="game game-coletazo"
-            tabindex="0"
-            role="button"
-            aria-label="Open Coletazo"
-            data-game-url="coletazo.html"
-          >
-            <div class="game-top">
-              <span class="pill sugar">Sugar</span>
-              <span class="meta">1 vs Many • 20 min</span>
-            </div>
-            <h3>Coletazo</h3>
-            <p>
-              A cute-but-clever 1 vs many family strategy game. Light on rules, rich in decisions.
-            </p>
-            <ul class="bullets">
-              <li>Tactical, replayable, and friendly</li>
-              <li>Strong table presence</li>
-              <li>Designed for families and kids 8+</li>
-            </ul>
-            <p class="game-open-hint">Click to open</p>
-          </article>
-
-          <article
-            class="game game-hauntings game-shadow"
-            tabindex="0"
-            role="button"
-            aria-label="Open Hauntings"
-            data-game-url="hauntings.html"
-          >
-            <div class="game-top">
-              <span class="pill shadow">Shadow</span>
-              <span class="meta">Adults • up to 5 hours</span>
-            </div>
-            <h3>Hauntings</h3>
-            <p>
-              An ambitious esoteric experience. Ritual tension, long arcs, and consequences that linger.
-            </p>
-            <ul class="bullets">
-              <li>Atmospheric, narrative-forward design</li>
-              <li>High commitment, high reward</li>
-              <li>Built for dedicated adult tables</li>
-            </ul>
-            <p class="game-open-hint">Click to open</p>
-          </article>
-        </div>
-
-        <div class="callout">
-          <p>
-            <strong>Want early access?</strong> Join the Circle to get playtest calls, previews, and release news.
-          </p>
-          <a class="button primary" href="#contact">Join the Circle</a>
-        </div>
+        <label class="games-sort">
+          <span>Sort by</span>
+          <select aria-label="Sort games">
+            <option selected>Featured</option>
+            <option>Newest</option>
+            <option>Shortest playtime</option>
+            <option>Most players</option>
+          </select>
+        </label>
       </div>
-    </section>
+
+      <div class="catalog-grid">
+        <article
+          class="catalog-card"
+          tabindex="0"
+          role="button"
+          aria-label="Open THAT'S NOT FUNNY!"
+          data-game-url="thatsnotfunny.html"
+        >
+          <span class="catalog-badge">NEW</span>
+
+          <div class="catalog-card-media">
+            <img
+              src="thatsnotfunny-box.jpg"
+              alt="THAT'S NOT FUNNY! box"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="catalog-card-body">
+            <div class="catalog-card-head">
+              <h3>THAT'S NOT FUNNY!</h3>
+              <p class="catalog-price">€19,99 <span>EUR</span></p>
+            </div>
+
+            <p class="catalog-subtitle">Sugar line</p>
+
+            <p class="catalog-description">
+              A mischievous card game of awful presents, birthday sabotage, and beautifully polite cruelty.
+            </p>
+
+            <div class="catalog-tags" aria-label="Game details">
+              <span class="tag">AGE 10+</span>
+              <span class="tag">3–5</span>
+              <span class="tag">15 MIN</span>
+            </div>
+          </div>
+        </article>
+
+        <article
+          class="catalog-card"
+          tabindex="0"
+          role="button"
+          aria-label="Open REVERSO!"
+          data-game-url="reverso.html"
+        >
+          <span class="catalog-badge">NEW</span>
+
+          <div class="catalog-card-media">
+            <img
+              src="reverso-box.jpg"
+              alt="REVERSO! box"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="catalog-card-body">
+            <div class="catalog-card-head">
+              <h3>REVERSO!</h3>
+              <p class="catalog-price">€19,99 <span>EUR</span></p>
+            </div>
+
+            <p class="catalog-subtitle">Sugar line</p>
+
+            <p class="catalog-description">
+              A fast reflex card game. Flip, react, shout the reverso, and survive the chaos.
+            </p>
+
+            <div class="catalog-tags" aria-label="Game details">
+              <span class="tag">AGE 7+</span>
+              <span class="tag">2–6</span>
+              <span class="tag">10 MIN</span>
+            </div>
+          </div>
+        </article>
+
+        <article
+          class="catalog-card"
+          tabindex="0"
+          role="button"
+          aria-label="Open Coletazo"
+          data-game-url="coletazo.html"
+        >
+          <span class="catalog-badge">NEW</span>
+
+          <div class="catalog-card-media">
+            <img
+              src="coletazo-box.jpg"
+              alt="Coletazo box"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="catalog-card-body">
+            <div class="catalog-card-head">
+              <h3>COLETAZO</h3>
+              <p class="catalog-price">€24,99 <span>EUR</span></p>
+            </div>
+
+            <p class="catalog-subtitle">Sugar line</p>
+
+            <p class="catalog-description">
+              A cute-but-clever family strategy game with light rules, big table presence, and real decisions.
+            </p>
+
+            <div class="catalog-tags" aria-label="Game details">
+              <span class="tag">AGE 8+</span>
+              <span class="tag">1 vs Many</span>
+              <span class="tag">20 MIN</span>
+            </div>
+          </div>
+        </article>
+
+        <article
+          class="catalog-card catalog-card-shadow"
+          tabindex="0"
+          role="button"
+          aria-label="Open Hauntings"
+          data-game-url="hauntings.html"
+        >
+          <span class="catalog-badge">NEW</span>
+
+          <div class="catalog-card-media">
+            <img
+              src="hauntings-box.jpg"
+              alt="Hauntings box"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="catalog-card-body">
+            <div class="catalog-card-head">
+              <h3>HAUNTINGS</h3>
+              <p class="catalog-price">€39,99 <span>EUR</span></p>
+            </div>
+
+            <p class="catalog-subtitle">Shadow line</p>
+
+            <p class="catalog-description">
+              An ambitious esoteric experience built around ritual tension, long arcs, and consequences that linger.
+            </p>
+
+            <div class="catalog-tags" aria-label="Game details">
+              <span class="tag">ADULTS</span>
+              <span class="tag">2–5</span>
+              <span class="tag">UP TO 5H</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- ABOUT -->
     <section id="about" class="section section-about">
